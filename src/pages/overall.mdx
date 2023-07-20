@@ -1,0 +1,209 @@
+import Student from "../components/Student.astro";
+import Teacher from "../components/Teacher.astro";
+
+
+# From riddles to DPLL(T): An Adventure
+
+## Part 0 - guide:
+
+In history of problem solving, logic is one of the keys to a 'universal theory'.
+
+In this article, I'd like to explain in detail about logic in a computer era, especially
+about the SAT problem and the DPLL, CDCL and DPLL(T) algorithms.
+
+But first, let me ask you readers a few questions. Please choose best answers and
+follow the path.
+
+P0 - Question 1:
+
+What is the difference between syntactic and semantic concepts in logic?
+
+A. A syntactic concept means something one wants to convey by a statement, while a semantic
+one means something it actually conveys.
+B. A syntactic concept means something to be deduced, while a semantic one
+means something to be verified.
+C. A syntactic concept means something true by default, while a semantic one
+means something to be proved.
+D. I want to learn more about it.
+
+(this decides whether the reader should skip part 1.)
+
+P0 - Question 2:
+
+Which is not one of the fundamental laws of logic:
+
+A. the law of excluded middle
+B. the law of contradiction
+C. the law of induction
+D. I want to learn more about it.
+
+P0 - Question 3:
+
+What is the full name of CNF in the context of proposition logic?
+
+A. cell normal form
+B. conjunctive normal form
+C. Cackus-Naur form
+D. I want to learn more about it.
+
+P0 - Question 4:
+
+Would you like to read with supplementary materials or a one-page version?
+
+A. longer version
+B. TL; DR
+
+[
+configurations:
+
+short path / long path
+
+choose a carrier: voice + slides, programming algorithms, theorems, analogies
+]
+
+## Part 1 - basic concepts:
+
+<Teacher>
+    <p>
+    Time to start, <b>**bold**</b> truth-seekers! Today we are going to face a logical problem. Before that, have a look at this classic riddle:
+
+    Three kids are accused of breaking a window. Their statements are either true or false. Only one is telling a lie.
+    The first kid said, "he (the second kid) is telling a lie."
+    The second kid said, "he (the third kid) broke the window."
+    The third kid yelled, "I didn't!"
+
+    Who's going to tell me, which one is telling a lie?
+    </p>
+</Teacher>
+
+<Student name="A">
+    <p>
+        I might have seen this puzzle before. Let's assume all kids are telling truth,
+        and what kid 1 said shows that kid 2 is telling a lie. A contradiction!
+
+        Well, let's move on: if kid 1 is telling a lie, then kid 2 claims kid 3 broke the window while
+        kid 3 denies, another contradiction!
+
+        ...
+    </p>
+</Student>
+
+<Student name="B">
+    <p>
+        Hey, move aside! I have found a secret. The statements of kid 1 and kid 2
+        always contradicts, and at most one of them is true!
+
+        The same is for kid 2 and kid 3. As a result, there is a lier between kid 1
+        and kid 2, as well as between kid 2 and kid 3. As we know there is at most
+        1 lier among the three, kid 2 is the lier!
+    </p>
+</Student>
+
+<Student name="A">
+    <p>I have just finish my enumeration, and I agree that's correct.</p>
+</Student>
+
+<Teacher>
+    <p>
+        Good, you have found two different ways to solve the problem.
+        However, we still need to look at it from a more formal perspective.
+
+        Let's check your problem solving skills, which draw the same conclusion at last.
+        However, they are intricately different. One checks all possible solutions,
+        and filters out the unqualified.
+
+        The other grows from solid assumptions, and everything it derives is qualified
+        by nature. We call this *reasoning*.
+
+        The reasoning process has some key elements, for example, axioms.
+        Every reasoning process must have a beginning.
+        
+        And syntax, deduction, or rules, whatever you like. Like a detective, we draw a conclusion
+        from the 'axioms'.
+
+        And of course there is always a conclusion to be proved.
+    </p>
+</Teacher>
+
+<Student>
+    <p>
+        Wow, this is where syntax comes in! So syntax is a way to rule out invalid
+        things, by only a few characteristics on them!
+    </p>
+</Student>
+
+<Teacher>
+    <p>
+        Exactly, and we usually call a statement *consistent*, if no contradiction
+        can be reasoned from it. This is a way to rule out incorrect guesses.
+
+        However, just like a detective solving a case, there are occasions when reasoning
+        fails. When faced with similar puzzles, we human usually identify the reasoning rules,
+        and try to deduce with them. If no more information can be deduced, we turn to the
+        last method, enumerating possible solutions and seek *truths*.
+
+        We consider this a semantic process, and the truths are said to be *satisfying*.
+    </p>
+</Teacher>
+
+<Student>
+    <p>
+        So a semantic concept is always linked to the world or the basic facts.
+    </p>
+</Student>
+
+The puzzle has three statements, each of which is either true or false.
+Everything is a yes-or-no question, that is exactly how *proposition logic* sees the world.
+
+We'll talk about proposition logic more later. In fact, our discussion is all about
+proposition if not otherwise mentioned.
+
+You can read more about abstract logic ideas, or move to the next chapter, on more humane reasoning.
+
+Appendix 1 - consistency, completeness and more
+
+...
+
+## Part 2 - solving problems as human nature:
+
+
+
+Unit Propagation
+
+Resolution
+
+## Appendix 2 - more logical fields
+
+...
+
+## Part 3 - CNF and search methods:
+
+## Appendix 3 - heuristic search
+
+## Part 4 - DPLL, CDCL and DPLL(T):
+
+ I wrote more than three hundred computer programs while preparing this
+material, because I find that I don't understand things unless I try to program
+them. - Don Knuth, in *The Art of Computer Programming, Volume 4 Fascicle 6, Satisfiability*
+
+(the DPLL(T) explained for the impatient)
+
+Many classic puzzles, as well as real-life problems, can be abstracted
+as a <b>SAT problem</b>, 
+
+
+## Part 5 - afterwords:
+
+I wrote this in my own way to learn about this SAT problem, and therefore
+there may be mistakes in the article.
+
+There are many good publications on this topic. I consult a few pages in
+<a href="https://www.iospress.nl/book/handbook-of-satisfiability-2/">Handbook of Satisfiability</a>
+and <a href="https://www.pearson.com/us/higher-education/program/Knuth-Art-of-Computer-Programming-Volume-4-Fascicle-6-The-Satisfiability/PGM328228.html">
+The Art of Computer programming, Volume 4 Fascicle 6</a>, for the theory
+part, and <a href="https://microsoft.github.io/z3guide/">Z3 Guide</a> for
+the use of Z3.
+
+For CDCL programming, consult <a href="https://cse442-17f.github.io/Conflict-Driven-Clause-Learning/">this link</a>.
+
+For a better visual of how hard SAT is, consult <a href="https://www.cril.univ-artois.fr/~roussel/satgame/satgame.php">The SAT Game</a>.
