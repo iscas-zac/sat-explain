@@ -1,0 +1,101 @@
+import Student from "../components/Student.astro";
+import Teacher from "../components/Teacher.astro";
+
+## Part 1 - basic concepts:
+
+<Teacher>
+    <p>
+    Time to start, <b>**bold**</b> truth-seekers! Today we are going to face a logical problem. Before that, have a look at this classic riddle:
+
+    Three kids are accused of breaking a window. Their statements are either true or false. Only one is telling a lie.
+    The first kid said, "he (the second kid) is telling a lie."
+    The second kid said, "he (the third kid) broke the window."
+    The third kid yelled, "I didn't!"
+
+    Who's going to tell me, which one is telling a lie?
+    </p>
+</Teacher>
+
+<Student name="A">
+    <p>
+        I might have seen this puzzle before. Let's assume all kids are telling truth,
+        and what kid 1 said shows that kid 2 is telling a lie. A contradiction!
+
+        Well, let's move on: if kid 1 is telling a lie, then kid 2 claims kid 3 broke the window while
+        kid 3 denies, another contradiction!
+
+        ...
+    </p>
+</Student>
+
+<Student name="B">
+    <p>
+        Hey, move aside! I have found a secret. The statements of kid 1 and kid 2
+        always contradicts, and at most one of them is true!
+
+        The same is for kid 2 and kid 3. As a result, there is a lier between kid 1
+        and kid 2, as well as between kid 2 and kid 3. As we know there is at most
+        1 lier among the three, kid 2 is the lier!
+    </p>
+</Student>
+
+<Student name="A">
+    <p>I have just finish my enumeration, and I agree that's correct.</p>
+</Student>
+
+<Teacher>
+    <p>
+        Good, you have found two different ways to solve the problem.
+        However, we still need to look at it from a more formal perspective.
+
+        Let's check your problem solving skills, which draw the same conclusion at last.
+        However, they are intricately different. One checks all possible solutions,
+        and filters out the unqualified.
+
+        The other grows from solid assumptions, and everything it derives is qualified
+        by nature. We call this *reasoning*.
+
+        The reasoning process has some key elements, for example, axioms.
+        Every reasoning process must have a beginning.
+        
+        And syntax, deduction, or rules, whatever you like. Like a detective, we draw a conclusion
+        from the 'axioms'.
+
+        And of course there is always a conclusion to be proved.
+    </p>
+</Teacher>
+
+<Student>
+    <p>
+        Wow, this is where syntax comes in! So syntax is a way to rule out invalid
+        things, by only a few characteristics on them!
+    </p>
+</Student>
+
+<Teacher>
+    <p>
+        Exactly, and we usually call a statement *consistent*, if no contradiction
+        can be reasoned from it. This is a way to rule out incorrect guesses.
+
+        However, just like a detective solving a case, there are occasions when reasoning
+        fails. When faced with similar puzzles, we human usually identify the reasoning rules,
+        and try to deduce with them. If no more information can be deduced, we turn to the
+        last method, enumerating possible solutions and seek *truths*.
+
+        We consider this a semantic process, and the truths are said to be *satisfying*.
+    </p>
+</Teacher>
+
+<Student>
+    <p>
+        So a semantic concept is always linked to the world or the basic facts.
+    </p>
+</Student>
+
+The puzzle has three statements, each of which is either true or false.
+Everything is a yes-or-no question, that is exactly how *proposition logic* sees the world.
+
+We'll talk more about proposition logic later. In fact, our discussion is all about
+proposition if not otherwise mentioned.
+
+You can read more about abstract logic ideas, or move to the next chapter, on more humane reasoning.
