@@ -13,7 +13,84 @@ In the last chapter, we have a discussion on some abstract logic concepts, espec
 the difference between (syntactic) proof with rules and (semantic)
 check with evaluation.
 
-As humans, we mostly want to derive conclusions of interest with simple rules.
+But we can not go far without even knowing what propositional logic is.
+Propositional logic is a logic branch, which focuses on reasoning with
+atom statements and their simple combinations.
+
+For example, '<font color="red">it is raining outside</font> <font color="yellow">and</font>
+<font color="blue">I am taking an umbrella</font>' can be
+abstracted to be a *single statement*, and it will be either right or wrong.
+But it does not give much information to look at a single statement.
+
+Luckily, propositional logic allows us to see it in a slightly different
+way. I will say '<font color="red">it is raining outside</font>' is a single statement, and
+'<font color="blue">I am taking an umbrella</font>' is another one. They are connected with a conjungation,
+'<font color="yellow">and</font>', to form a *compound statement*.
+
+Now, if I say the compound statement is true, are the two single ones true
+or false? What if they are connected by '<font color="yellow">or</font>'?
+
+</Teacher>
+
+<Student name="AABB">
+
+If '<font color="red">it is raining outside</font> <font color="yellow">and</font>
+<font color="blue">I am taking an umbrella</font>' are (both) true,
+then '<font color="red">it is raining outside</font>' is true and
+'<font color="blue">I am taking an umbrella</font>' is true.
+
+Hey, I'm also use 'and's here. But they are different,
+the second part of my sentence is not a compound statement, but an answer to your
+question!
+
+</Student>
+
+<Student name="BBZZ">
+
+As to 'or' case, it seems one of the statements should be true, but I
+don't know which one.
+
+</Student>
+
+<Teacher>
+
+Good! In logic, we usually need to separate a statement *in the logic
+system*, and one *out of the system and in we humans' mind*.
+
+In the system, we have a set of statements, or *literal*s, like '<font color="red">it is raining outside</font>'
+and '<font color="blue">I am taking an umbrella</font>'; we have some conjungations,
+or *operator*s, like '<font color="yellow">and</font>', '<font color="yellow">or</font>,'
+and '<font color="yellow">not</font>'; and we have deducing rules, compound statements, etc.
+
+However, note that the operators do not all connect two things together.
+A <font color="yellow">not</font> only affect one statement. In general,
+an operator is a mixer, you add any number of items, and get one thing out.
+
+As to the logical <font color="yellow">or</font>, people agree that it produces
+'true' if one or two statements are true. In the case above, we only know
+<font color="red">it is raining outside</font> and
+<font color="blue">I am taking an umbrella</font> are not both false.
+
+Semantically, an operator is with an enumeration of values of its ingredients.
+Who can tell me how many possibilities are values for <font color="yellow">or</font>?
+
+</Teacher>
+
+<Student name="AABB">
+
+There are four in total.
+- 'Something true' <font color="yellow">or</font> 'something false', produces true.
+- 'Something false' <font color="yellow">or</font> 'something false', produces false.
+- 'Something true' <font color="yellow">or</font> 'something true', produces true.
+- 'Something false' <font color="yellow">or</font> 'something true', produces true.
+
+</Student>
+
+<Teacher>
+
+It is effective. We can now even get a good representation of the puzzle in chapter 1!
+
+However, as humans, we mostly want to derive conclusions of interest with simple rules.
 What are the most elegant rules in your experience?
 
 </Teacher>
@@ -25,8 +102,7 @@ Definitely $$ E = m c^{2} $$.
 </Student>
 
 
-
-<Student name="you">
+<Student name="your name">
 
 Mmm, I like _________________.
 
@@ -43,6 +119,34 @@ Hey hey, I would say the three logical laws, as this is a logic class:
 They are the foundation of logic!
 
 </Student>
+
+<Teacher>
+
+'You stole my answer!'
+
+Am I going to say that? If you think I would spend the whole class introducing these
+laws, then you are wrong. They are by no means equivalence to Newton's
+laws in physics anyway.
+
+For those who have not heard 'the laws of thought', I'm giving a brief
+yet rough introduction.
+
+- The law of identity states that, you should stick to something where you
+admitted it.
+
+- The law of (non-)contradiction says, some statement can not be both true
+or false in the same place.
+
+- The law of excluded middle tells us that a statement should be nothing
+else than true or false.
+
+However, these laws are mostly related to simple propositional logic,
+while modern logicians focus more on other things. Even inside propositional
+logic itself, there are more useful rules to reason with.
+
+
+
+</Teacher>
 
 Unit Propagation
 
