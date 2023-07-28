@@ -1,1 +1,33 @@
-<slot/>
+---
+const { name } = Astro.props;
+
+function hashCode(str: string): number {
+    var h: number = 0;
+    for (var i = 0; i < str.length; i++) {
+        h = 31 * h + str.charCodeAt(i);
+    }
+    return h & 0xFFFFFFFF
+}
+
+const h1 = hashCode(name + '1') % 256;
+const h2 = hashCode(name + '2') % 256;
+const h3 = hashCode(name + '3') % 256;
+const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 +")";
+---
+<style define:vars={{ backgroundColor }}>
+    div {
+        background-color: var(--backgroundColor);
+        /* color: var(--foregroundColor); */
+    }
+</style>
+<div>
+    <slot />
+    <style>
+        div {
+            margin-left: 20%;
+            margin-right: 15%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</div>
