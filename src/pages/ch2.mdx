@@ -57,7 +57,8 @@ don't know which one.
 Good! In logic, we usually need to separate a statement *in the logic
 system*, and one *out of the system and in we humans' mind*.
 
-In the system, we have a set of statements, or *literal*s, like '<font color="red">it is raining outside</font>'
+In the system, we have a set of statements, or *literal*s or *variable*s,
+like '<font color="red">it is raining outside</font>'
 and '<font color="blue">I am taking an umbrella</font>'; we have some conjungations,
 or *operator*s, like '<font color="yellow">and</font>', '<font color="yellow">or</font>,'
 and '<font color="yellow">not</font>'; and we have deducing rules, compound statements, etc.
@@ -144,10 +145,108 @@ However, these laws are mostly related to simple propositional logic,
 while modern logicians focus more on other things. Even inside propositional
 logic itself, there are more useful rules to reason with.
 
+For example, some of you might see that there is a redundency to provide 3 operators in
+our system. A rule widely known as "De Morgan rule" states that, given two
+arbitrary statement A and B,
 
+- A <span style="font: bold;">OR</span> B \
+is equivalent to \
+NOT ((NOT A) <font color="yellow">AND</font> (NOT B)).
+
+Thus, any occurrence of OR could be replaced by AND and NOT.
 
 </Teacher>
 
-Unit Propagation
+<Student>
 
-Resolution
+How long the rule is! But it indeed looks like the distributive law in
+elementary arithmetic.
+
+</Student>
+
+<Teacher>
+
+Then the following should come a little harder, belt up!
+
+We are introducing an important rule called "resolution":
+$$
+(A\quad\mathbb{OR}\quad B)\quad\mathbb{AND}\quad((\mathbb{NOT}\quad A)
+\quad \mathbb{OR}\quad C)
+$$
+
+is equivalent to
+
+$$
+(B\quad\mathbb{OR}\quad C)
+$$
+. If B and C are compound, they should not contain any same single variables.
+
+Or if it seems too overwhelming, there is a plain-text example of it,
+given
+
+- if <font color="red">it is raining outside</font> then
+<font color="blue">I am taking an umbrella</font>
+
+- if not <font color="red">it is raining outside</font> then
+<font color="green">I am wearing a coat</font>
+
+, we will have
+
+- either <font color="blue">I am taking an umbrella</font> or
+<font color="green">I am wearing a coat</font>
+
+. Note that this if-statement is one of the explanations of the formula.
+Please check that after class.
+
+Using the resolution rule, let's actually derive something from the
+puzzle we see before.
+
+Let's introduce propositional variables A, B and C, each representing
+the sentences of kid 1, 2 and 3 is a truth, and a variable D to indicate
+"kid 3 broke the window".
+
+</Teacher>
+
+<Student name="AABB">
+
+I will do the labor. If B is true, then kid 3 broke the window and D is
+true. We say "not B or D" then.
+
+If C is true, then kid 3 didn't break the window and D is false. We say
+"not C or not D" then.
+
+</Student>
+
+<Student name="BBZZ">
+
+Since we need to satisfy both the two compound statements, we say "
+'not B or D' and 'not C or not D'", or
+$$
+(D\quad\mathbb{OR}\quad (\mathbb{NOT}\quad B))\quad\mathbb{AND}\quad((\mathbb{NOT}\quad D)
+\quad \mathbb{OR}\quad (\mathbb{NOT}\quad C))
+$$
+that is,
+'((not B) or (not C))'.
+
+With a similar reasoning process, we have '((not B) or (not A))'.
+
+</Student>
+
+<Teacher>
+
+In this practice, we see how hard reasoning is, and simply think when
+there are thousands of variables in a more practical scene! Next chapter,
+we are looking at a more mechanical approach. You can also halt and refer
+to our appendix on various logical systems.
+
+Exercise:
+
+1. the 'and' operator can be replaced with 'or' and 'not', and can 'or' be
+replaced by 'and' and 'not'? What about 'not' by 'and' and 'or'? Is there
+an operator that can alone represent them all?
+
+2. explain De Morgan law to your friends in a plain manner.
+
+// TODO: rewrite some letter symbols with emoji
+// TODO: unified coloring
+// TODO: graphing the reasoning process
