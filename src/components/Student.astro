@@ -2,16 +2,25 @@
 const { name } = Astro.props;
 
 function hashCode(str: string): number {
-    var h: number = 0;
-    for (var i = 0; i < str.length; i++) {
-        h = 31 * h + str.charCodeAt(i);
+    var hash = 0,
+    i, chr;
+    if (str.length === 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        chr = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
     }
-    return h & 0xFFFFFFFF
+    return hash;
+    // var h: number = 0;
+    // for (var i = 0; i < str.length; i++) {
+    //     h = 31 * h + str.charCodeAt(i);
+    // }
+    // return h & 0xFFFFFFFF
 }
 
 const h1 = hashCode(name + '1') % 256;
-const h2 = hashCode(name + '2') % 256;
-const h3 = hashCode(name + '3') % 256;
+const h2 = hashCode(name + '22') % 256;
+const h3 = hashCode(name + '333') % 256;
 const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 +")";
 ---
 <style define:vars={{ backgroundColor }}>

@@ -1,0 +1,24 @@
+---
+const {
+  title,
+} = Astro.props;
+
+---
+
+<div
+  id="code-editor"
+  style="width: 800px; height: 600px; border: 1px solid grey"
+>
+</div>
+
+<script>
+  import './Editor.client.js';
+</script>
+
+<style>
+  [id='code-editor'] {
+    /* Without those min. values, editor becomes invisible
+      if no CSS dimensions is set by user */
+    min-width: 150px;
+  }
+</style>

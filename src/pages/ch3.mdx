@@ -1,2 +1,156 @@
+---
+layout: "../layouts/Layouts.astro"
+---
+
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
+
+<Teacher>
+
+We looked at the terminology and a few rules in the last chapter,
+only to find it too hard to follow.
+
+In logic, reasoning by rule is usually more interesting. However,
+there is time when we have to test every combination of truth values
+to see if a statement is satisfiable.
+
+Before we find out how such an exhaustive search can be done,
+let's first introduce the CNF of logic statements.
+
+"CNF" stands for "conjuctive normal form", in which
+
+- a statement consists of various "clauses" connected by "and"
+- inside the clauses, *literal*s are connected by "or"
+- a literal is either a variable or its negation
+
+</Teacher>
+
+<Student name="AABB">
+
+It's like, well, "a suitcase should weigh no more than 50kg, and not exceed
+50cm in length, and not exceed 50cm in width". When a new rule arrives,
+we simply add it to the tail.
+
+"And" means that its branches should both be satisfied. A bunch of clauses
+connected by "and"s! It seems our statement has a hash constraint on the
+variables!
+
+</Student>
+
+<Student name="BBZZ">
+
+But if the clauses are connected by "or"s, then we will only look at one of them
+and discard the rest. That will simply be too easy.
+
+Also, there are "or"s Inside the "clause"s. Therefore, we only need to adjust
+one variable to make a clause true.
+
+</Student>
+
+<Teacher>
+
+As we see before, "and", "or" and "not" can represent all kinds of relations.
+Here we take a step further and think every statement in propositional
+logic can be represented in such three levels. There are some ways to convert
+any kind of propositional logic statements, even more general problem statements,
+into a CNF, and ...
+
+</Teacher>
+
+<Student name="AABB">
+
+Wait! In my experience, "and" and "or" are symmetric! We convert an "and"
+statement to "or" one, just as easy as the reverse way. If we can easily
+convert something to a CNF statement, why don't convert it to something
+connected by "or", and it will be much easier to satisfy!
+
+</Student>
+
+<Teacher>
+
+Good point. There are general ways to convert things to those forms, but
+generally a hard problem in daily life comes with constraints that should
+all be met, and CNF is more close to such a problem.
+
+In nature however, this derives from the hard core of computational
+complexity.
+
+Computation... Computers! Do you see some connections between electronic
+computers and our satisfiability problem?
+
+</Teacher>
+
+<Student name="BBZZ">
+
+I'm told that computers are made of little switches. It understands only
+0 and 1 by turning those switches on and off.
+
+And... A satisfiability problem also deals with variables that take 0 and 1
+as its variables! It seems computers should understand logic by design!
+
+</Student>
+
+<Student name="YOUDDDD">
+
+I hear that computers are _________________.
+
+</Student>
+
+<Student name="AABB">
+
+I think computers are always following some rules. Maybe they can easily
+reason with the logical rules?
+
+</Student>
+
+<Teacher>
+
+Good. Computers have not only switches but also gates, which can calculate
+all kinds of operations like "and". It is sometimes amazing, though, that
+satisfiability solvers help computer chip design. Metaphorically, I see this
+as the species of computer breeding offsprings.
+
+As to computer aided reasoning, or "automated reasoning", they are not so
+mature as to solve hard puzzles for us, but they are evolving.
+
+Computers usually view problems naively. For example, 3 * 4 * 5 is two multiplications,
+while 3 * 12 is one, and complex functions are also built on top of additions
+and multiplications. As a result, we only calculate the operations
+they need to perform as a rough estimate of the run time.
+
+So, if modern satisfiability solvers, as computer programs, does not rely
+much on syntactic reasoning, how do they solve a general problem?
+
+The core idea in this is called "search", which is also a major topic in
+any kind of computer programming books.
+
+Let's stick to the example in chapter 1, exploring only the truth values
+of 3 kid's statements.
+
+...PICS...
+
+In our puzzle, there is only one truth value combination that can satisfy
+the requirements. To find the combination, we need to enumerate every
+possibility.
+
+</Teacher>
+
+<Student name="AABB">
+
+(murmuring) Exactly what I have done?
+
+</Student>
+
+<Teacher>
+
+So far that's right. However, the number of combinations grows as we add
+more variables. For 2 variables, the computer visits 4 possibilities, and
+performs evaluation of the statements; for 3 variables, it visits 8, and
+performs evaluation of a longer statements. And we all know the possible
+combinations become too many to visit, even for powerful computers.
+
+Modern solvers is capable of dealing with hundreds of variables and thousands
+of clauses, even in the worst case. How can it be?
+
+Well, what we previously do (enumerating everything and evaluating them) is
+called "brutal force". On the contrary, we can
