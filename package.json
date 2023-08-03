@@ -17,12 +17,14 @@
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "astro": "^2.8.0",
+    "astro-headers": "^0.0.7",
     "monaco-editor": "^0.40.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rehype-katex": "^6.0.2",
     "rehype-math": "^0.2.0",
     "remark-math": "^5.1.1",
+    "tau-prolog": "^0.3.4",
     "use-editable": "^2.3.3",
     "z3-solver": "^4.12.2"
   }

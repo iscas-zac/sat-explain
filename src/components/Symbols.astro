@@ -1,0 +1,49 @@
+---
+const { code } = Astro.props;
+var symbol_list: string[] = code.split("");
+const paddingArray = new Array(10 - symbol_list.length).fill("C");
+symbol_list = [...symbol_list, ...paddingArray];
+const color_list: string[] = [
+  "rgba(128, 255, 0, 0.29)",
+  "rgba(255, 0, 102, 0.75)",
+  "rgba(51, 204, 255, 0.94)",
+  "rgba(153, 102, 0, 0.49)",
+  "rgba(255, 102, 255, 0.12)",
+  "rgba(0, 51, 153, 0.86)",
+  "rgba(102, 0, 51, 0.05)",
+  "rgba(0, 153, 0, 0.41)",
+  "rgba(204, 51, 153, 0.66)",
+  "rgba(255, 128, 0, 0.93)",
+];
+---
+
+<div class="div-container" style="display: flex;">
+  {
+    symbol_list.map((symb, index) => (
+      <div class={symb} style={`background: ${color_list[index]};`} />
+    ))
+  }
+</div>
+<div class="tri-container">
+  <div class="triangle"></div>
+  <div class="triangle"></div>
+  <div class="triangle"></div>
+</div>
+
+<style>
+  /* upside triangle */
+  .A {
+    width: 30px;
+    height: 20px;
+    /* background: red linear-gradient(red, blue); */
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  }
+
+  /* downside triangle */
+  .B {
+    width: 30px;
+    height: 20px;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    transform: rotate(180deg);
+  }
+</style>

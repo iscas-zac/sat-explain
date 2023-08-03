@@ -1,0 +1,19 @@
+---
+import Snippet from "./Snippet.astro";
+---
+
+<Snippet/>
+
+<script>
+    import pl from "tau-prolog";
+    var session = pl.create();
+    session.consult(`
+    likes(sam, salad).
+    likes(dean, pie).
+    likes(sam, apples).
+    likes(dean, whiskey).
+`, {
+    success: function() { /* Program loaded correctly */ },
+    error: function(err) { /* Error parsing program */ }
+});
+</script>

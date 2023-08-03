@@ -1,0 +1,57 @@
+---
+interface Choices {
+  info: string;
+  options: { [name: string]: number };
+  directions: [[info: string, ref: string]];
+}
+
+const { info, options, directions } = Astro.props as Choices;
+---
+
+<dialog>
+  <p>{info}</p>
+  <form name="quiz">
+    {
+      Object.keys(options).map((prompt) => (
+        <div>
+          <input type="radio" name="answer" value={options[prompt]} />
+          <label>{prompt}</label>
+        </div>
+      ))
+    }
+  </form>
+  <button onclick="
+  submit()
+">confirm</button>
+  {
+    directions.map(([info, ref], index) => (
+      <a class="pale" id={`ref-${index + 1}`} href={ref}>
+        {info}
+      </a>
+    ))
+  }
+  <script is:inline>
+    const dialog = document.querySelector("dialog");
+    dialog?.showModal();
+
+    function submit() {
+      const radios = document.getElementsByName("answer");
+      const value = Array.from(radios).find((radio) => radio.checked).value;
+
+      const ref_to_highlight = document.getElementById("ref-" + value);
+      ref_to_highlight.classList.add("highlight");
+      ref_to_highlight.classList.remove("pale");
+    }
+  </script>
+
+  <style>
+    .pale {
+      color: #ccc;
+    }
+
+    .highlight {
+      color: #ff0000;
+      font-weight: bold;
+    }
+  </style>
+</dialog>
