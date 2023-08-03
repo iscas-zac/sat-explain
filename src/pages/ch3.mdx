@@ -1,9 +1,27 @@
 ---
+title: "Part 3 - DPLL, CDCL and DPLL(T)"
+author: "AABB"
 layout: "../layouts/Layout.astro"
 ---
 
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
+
+import Choice from "../components/Choice.astro";
+
+<Choice
+  info="What is the full name of CNF in the context of proposition logic?"
+  options={{
+    "cell normal form": 1,
+    "conjunctive normal form": 2,
+    "Cackus-Naur form": 1,
+    "I want to learn more about it.": 1,
+  }}
+  directions={[
+    ["please read through this chapter", "#"],
+    ["you may skip to next chapter.", "/ch4"],
+  ]}
+/>
 
 <Teacher>
 
@@ -92,7 +110,7 @@ as its variables! It seems computers should understand logic by design!
 
 <Student name="YOUDDDD">
 
-I hear that computers are _________________.
+I hear that computers are ********\_********.
 
 </Student>
 
@@ -113,8 +131,8 @@ as the species of computer breeding offsprings.
 As to computer aided reasoning, or "automated reasoning", they are not so
 mature as to solve hard puzzles for us, but they are evolving.
 
-Computers usually view problems naively. For example, 3 * 4 * 5 is two multiplications,
-while 3 * 12 is one, and complex functions are also built on top of additions
+Computers usually view problems naively. For example, 3 _ 4 _ 5 is two multiplications,
+while 3 \* 12 is one, and complex functions are also built on top of additions
 and multiplications. As a result, we only calculate the operations
 they need to perform as a rough estimate of the run time.
 
@@ -154,3 +172,5 @@ of clauses, even in the worst case. How can it be?
 
 Well, what we previously do (enumerating everything and evaluating them) is
 called "brutal force". On the contrary, we can
+
+</Teacher>

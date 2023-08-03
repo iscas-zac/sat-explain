@@ -22,17 +22,30 @@ const { info, options, directions } = Astro.props as Choices;
   </form>
   <button onclick="
   submit()
-">confirm</button>
+  ">confirm</button>
   {
-    directions.map(([info, ref], index) => (
-      <a class="pale" id={`ref-${index + 1}`} href={ref}>
-        {info}
-      </a>
-    ))
+    directions.map(([info, ref], index) =>
+      ref === "#" ? (
+        <a class="pale" id={`ref-${index + 1}`} href={ref}>
+          {info}
+        </a>
+      ) : (
+        <a class="pale" id={`ref-${index + 1}`} href={ref}>
+          {info}
+        </a>
+      )
+    )
   }
   <script is:inline>
     const dialog = document.querySelector("dialog");
     dialog?.showModal();
+
+    const links = document.querySelectorAll('a[href="#"]');
+    links.forEach((element) => {
+      element.addEventListener("click", function () {
+        dialog?.close();
+      });
+    });
 
     function submit() {
       const radios = document.getElementsByName("answer");
