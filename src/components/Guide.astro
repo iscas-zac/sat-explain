@@ -1,0 +1,20 @@
+---
+interface Guides {
+  info: string;
+  directions: [[info: string, ref: string]];
+}
+
+const { info, directions } = Astro.props as Guides;
+---
+
+<div style="font-size: larger; margin: 20px;">{info}</div>
+
+{
+  directions.map(([info, ref], index) => (
+    <div>
+      <a class="pale" id={`ref-${index + 1}`} href={ref}>
+        {info}
+      </a>
+    </div>
+  ))
+}

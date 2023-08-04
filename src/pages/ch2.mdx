@@ -1,11 +1,27 @@
 ---
+title: Part 2 - solving problems as human nature
+author: AABB
 layout: '../layouts/Layout.astro'
 ---
 
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
+import Choice from "../components/Choice.astro";
 
-## Part 2 - solving problems as human nature:
+<Choice
+  info="Which is not one of the fundamental laws of logic?"
+  options={{
+    "the law of excluded middle": 1,
+    "the law of contradiction": 1,
+    "the law of induction": 2,
+    "I want to learn more about it": 1,
+  }}
+  directions={[
+    ["I'd read through this chapter", "#"],
+    ["I'd skip to next chapter", "/ch3"],
+  ]}
+/>
+
 
 <Teacher>
 

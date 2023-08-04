@@ -1,42 +1,36 @@
 ---
+import NoteStyle from "./NoteStyle.astro";
 const { name } = Astro.props;
 
 function hashCode(str: string): number {
-    var hash = 0,
-    i, chr;
-    if (str.length === 0) return hash;
-    for (i = 0; i < str.length; i++) {
-        chr = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + chr;
-        hash |= 0; // Convert to 32bit integer
-    }
-    return hash;
-    // var h: number = 0;
-    // for (var i = 0; i < str.length; i++) {
-    //     h = 31 * h + str.charCodeAt(i);
-    // }
-    // return h & 0xFFFFFFFF
+  var hash = 0,
+    i,
+    chr;
+  if (str.length === 0) return hash;
+  for (i = 0; i < str.length; i++) {
+    chr = str.charCodeAt(i);
+    hash = (hash << 5) - hash + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+  // var h: number = 0;
+  // for (var i = 0; i < str.length; i++) {
+  //     h = 31 * h + str.charCodeAt(i);
+  // }
+  // return h & 0xFFFFFFFF
 }
 
-const h1 = hashCode(name + '1') % 256;
-const h2 = hashCode(name + '22') % 256;
-const h3 = hashCode(name + '333') % 256;
-const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 +")";
+const h1 = Math.abs(hashCode(name + "2547372") % 256);
+const h2 = Math.abs(hashCode(name + "265245") % 256);
+const h3 = Math.abs(hashCode(name + "51615") % 256);
+const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
 ---
-<style define:vars={{ backgroundColor }}>
-    div {
-        background-color: var(--backgroundColor);
-        /* color: var(--foregroundColor); */
-    }
-</style>
+
 <div>
+  { (name === "A") && <img src="/student1.jpg"> }
+  { (name === "B") && <img src="/student2.jpg"> }
+  { (name === "you") && <img src="/student-unknown.jpg"> }
+  <NoteStyle color={ backgroundColor }>
     <slot />
-    <style>
-        div {
-            margin-left: 20%;
-            margin-right: 15%;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
+  </NoteStyle>
 </div>

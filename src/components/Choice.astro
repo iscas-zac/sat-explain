@@ -9,7 +9,7 @@ const { info, options, directions } = Astro.props as Choices;
 ---
 
 <dialog>
-  <p>{info}</p>
+  <b style="font-size: larger; line-height: 50px;">{info}</b>
   <form name="quiz">
     {
       Object.keys(options).map((prompt) => (
@@ -20,19 +20,19 @@ const { info, options, directions } = Astro.props as Choices;
       ))
     }
   </form>
-  <button onclick="
+  <button style= "font-size: larger;" onclick="
   submit()
   ">confirm</button>
   {
     directions.map(([info, ref], index) =>
       ref === "#" ? (
-        <a class="pale" id={`ref-${index + 1}`} href={ref}>
+        <div><a class="pale" id={`ref-${index + 1}`} href={ref}>
           {info}
-        </a>
+        </a></div>
       ) : (
-        <a class="pale" id={`ref-${index + 1}`} href={ref}>
+        <div><a class="pale" id={`ref-${index + 1}`} href={ref}>
           {info}
-        </a>
+        </a></div>
       )
     )
   }

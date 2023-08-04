@@ -1,7 +1,30 @@
+---
+title: Part 1 - basic concepts
+author: AABB
+layout: "../layouts/Layout.astro"
+---
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
 
-## Part 1 - basic concepts:
+import Choice from "../components/Choice.astro";
+import Guide from "../components/Guide.astro";
+
+<Choice
+  info="What is the difference between syntactic and semantic concepts in logic?"
+  options={{
+    "A syntactic concept means something one wants to convey by a statement, while a semantic \
+one means something it actually conveys.": 1,
+    "A syntactic concept means something to be deduced, while a semantic one \
+means something to be verified.": 2,
+    "A syntactic concept means something true by default, while a semantic one \
+means something to be proved.": 1,
+    "I want to learn more about it.": 1,
+  }}
+  directions={[
+    ["I'd read through this chapter", "#"],
+    ["I'd skip to next chapter", "/ch2"],
+  ]}
+/>
 
 <Teacher>
 
@@ -176,6 +199,8 @@ and I believe we are still very superficial in this aspect.
 
 </Teacher>
 
-You can read more about computation, or move to the next chapter, on "reasoning like a human".
-
+<Guide
+info="You can read more about computation, or move to the next chapter, on 'reasoning like a human'."
+directions={ [["appendix on computation", "/ap1"], ["next chapter", "/ch2"]] }
+/>
 // TODO: explain SAT

@@ -1,53 +1,66 @@
 ---
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro";
 
 const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
-		<meta name="generator" content={Astro.generator} />
-		<title>{ frontmatter.title }</title>
-	</head>
-	<body>
-		<Header title={ frontmatter.title } code={ frontmatter.author } />
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <Header title={frontmatter.title} code={frontmatter.author} />
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #f1f5f9;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #f1f5f9;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
 
-	body {
-		margin: 0 auto;
-		width: 100%;
-		max-width: 80ch;
-		padding: 1rem;
-		line-height: 1.5;
-	}
+  body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100ch;
+    padding: 1rem;
+    line-height: 1.5;
+  }
 
-	* {
-		box-sizing: border-box;
-	}
+  div {
 
-	h1 {
-		margin: 1rem 0;
-		font-size: 2.5rem;
-	}
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+  }
 </style>

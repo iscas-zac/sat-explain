@@ -1,0 +1,24 @@
+---
+import "@fontsource/im-fell-dw-pica";
+const { color } = Astro.props;
+const maxDegree = 10;
+const randomRotation = `${Math.floor(
+  Math.random() * maxDegree - maxDegree / 2
+)}deg`;
+---
+
+<div>
+  <slot />
+  <style define:vars={{ randomRotation, color }}>
+    div {
+      font-family: "IM Fell DW Pica", sans-serif;
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      transform: rotate(var(--randomRotation));
+      background-color: var(--color);
+    }
+  </style>
+</div>
