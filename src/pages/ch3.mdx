@@ -43,7 +43,7 @@ let's first introduce the CNF of logic statements.
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 It's like, well, "a suitcase should weigh no more than 50kg, and not exceed
 50cm in length, and not exceed 50cm in width". When a new rule arrives,
@@ -55,7 +55,7 @@ variables!
 
 </Student>
 
-<Student name="BBZZ">
+<Student name="B">
 
 But if the clauses are connected by "or"s, then we will only look at one of them
 and discard the rest. That will simply be too easy.
@@ -75,7 +75,7 @@ into a CNF, and ...
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 Wait! In my experience, "and" and "or" are symmetric! We convert an "and"
 statement to "or" one, just as easy as the reverse way. If we can easily
@@ -98,7 +98,7 @@ computers and our satisfiability problem?
 
 </Teacher>
 
-<Student name="BBZZ">
+<Student name="B">
 
 I'm told that computers are made of little switches. It understands only
 0 and 1 by turning those switches on and off.
@@ -108,13 +108,13 @@ as its variables! It seems computers should understand logic by design!
 
 </Student>
 
-<Student name="YOUDDDD">
+<Student name="you">
 
 I hear that computers are ********\_********.
 
 </Student>
 
-<Student name="AABB">
+<Student name="A">
 
 I think computers are always following some rules. Maybe they can easily
 reason with the logical rules?
@@ -171,6 +171,10 @@ Modern solvers is capable of dealing with hundreds of variables and thousands
 of clauses, even in the worst case. How can it be?
 
 Well, what we previously do (enumerating everything and evaluating them) is
-called "brutal force". On the contrary, we can
+called "brutal force".
+
+However, it's not the case that we will check the fridge for
+a pair of lost keys, right? We always have some intuition about where to find
+things. Some folk managed to teach computers to do that.
 
 </Teacher>

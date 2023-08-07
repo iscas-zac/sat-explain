@@ -12,16 +12,14 @@
   console.log(selectElement);
   console.log(selectElement.value);
   selectElement.addEventListener("change", function () {
-    for (const label of ["plain", "formula", "code", "voice"]) {
+    for (const label of ["plain", "formal", "code", "voice", "history", "TODO"]) {
       for (const elem of document.getElementsByClassName(label)) {
-        console.log(elem);
-        (elem).style.display = "none";
+        (elem).classList.add("invisible");
       }
     }
 
     for (const elem of document.getElementsByClassName(selectElement.value)) {
-      console.log(selectElement.value);
-      (elem).style.display = "block";
+      (elem).classList.remove("invisible");
     }
   });
 </script>

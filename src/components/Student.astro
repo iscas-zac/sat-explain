@@ -26,10 +26,16 @@ const h3 = Math.abs(hashCode(name + "51615") % 256);
 const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
 ---
 
-<div>
-  { (name === "A") && <img src="/student1.jpg"> }
-  { (name === "B") && <img src="/student2.jpg"> }
-  { (name === "you") && <img src="/student-unknown.jpg"> }
+<style>
+  img {
+    width: 80px;
+    height: 80px;
+  }
+</style>
+<div style="display: flex; align-items: center;">
+  { (name === "A") && <img src="/student1.png"> }
+  { (name === "B") && <img src="/student2.png"> }
+  { (name === "you") && <img src="/student-unknown.png"> }
   <NoteStyle color={ backgroundColor }>
     <slot />
   </NoteStyle>

@@ -1,26 +1,13 @@
 ---
 // object inline that will change according to mode settings
+const { className } = Astro.props;
+
 ---
 
-<div class="plain">fohadhfoad</div>
-<div class="formula">zzzzz</div>
-<div class="code"></div>
-<div class="voice"></div>
+<span class={ className }><slot /></span>
 
 <style>
-    .plain {
-        
-    }
-    
-    .formula {
-        display: none;
-    }
-
-    .code {
-        display: none;
-    }
-
-    .voice {
+    .invisible {
         display: none;
     }
 </style>
