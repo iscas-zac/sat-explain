@@ -1,11 +1,13 @@
 ---
 const { title, code } = Astro.props;
+import Mode from "./Mode.astro";
 import Symbols from "./Symbols.astro";
 ---
 
 <div class="header">
     <h1 class="header__title">{ title }</h1>
     <Symbols code={ code }/>
+    <Mode />
     <nav class="header__nav">
         <ul class="header__nav-list">
             <li class="header__nav-item"><a href="/overall">Home</a></li>
