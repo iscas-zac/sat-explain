@@ -20,9 +20,9 @@ function hashCode(str: string): number {
   // return h & 0xFFFFFFFF
 }
 
-const h1 = Math.abs(hashCode(name + "2547372") % 256);
-const h2 = Math.abs(hashCode(name + "265245") % 256);
-const h3 = Math.abs(hashCode(name + "51615") % 256);
+const h1 = Math.abs(hashCode(name + "55555") % 256);
+const h2 = Math.abs(hashCode(name + "22") % 256);
+const h3 = Math.abs(hashCode(name + "4444") % 256);
 const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
 ---
 
@@ -33,10 +33,32 @@ const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
   }
 </style>
 <div style="display: flex; align-items: center;">
-  { (name === "A") && <img src="/student1.png"> }
-  { (name === "B") && <img src="/student2.png"> }
-  { (name === "you") && <img src="/student-unknown.png"> }
-  <NoteStyle color={ backgroundColor }>
+  {
+    name === "A" && (
+      <img
+        src="/student1.png"
+        alt="a curious 10-year-old looking to the left, sketch, parchment, pencil, simple lineart, comic style"
+      />
+    )
+  }
+  {
+    name === "B" && (
+      <img
+        src="/student2.png"
+        alt="a thoughtful 18-year-old looking to the left, sketch, parchment, pencil, simple lineart, comic style"
+      />
+    )
+  }
+  {
+    name === "you" && (
+      <img
+        src="/student-unknown.png"
+        alt="a mysterious person under a fancy cloak, slightly looking to the right, simple lineart, parchment, comic style, sketch"
+      />
+    )
+  }
+  <NoteStyle color={backgroundColor}>
     <slot />
   </NoteStyle>
 </div>
+
