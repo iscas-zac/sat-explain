@@ -8,7 +8,7 @@ import Teacher from "../components/Teacher.astro";
 
 import Choice from "../components/Choice.astro";
 import Guide from "../components/Guide.astro";
-import Modal from "../components/Modal.astro";
+import TodoModal from "../components/TodoModal.astro";
 
 <Choice
   info="What is the difference between syntactic and semantic concepts in logic?"
@@ -35,7 +35,9 @@ Three kids are accused of breaking a window. Their statements are either true or
 The first kid said, "he (the second kid) is telling a lie."
 The second kid said, "he (the third kid) broke the window."
 The third kid yelled, "I didn't!"
-
+<TodoModal>
+make the lines structural
+</TodoModal>
 Who's going to tell me, which one is telling a lie?
 
 </Teacher>
@@ -49,6 +51,9 @@ Well, let's move on: if kid 1 is telling a lie, then kid 2 claims kid 3 broke th
 kid 3 denies, another contradiction!
 
 ...
+<TodoModal>
+make a table or something
+</TodoModal>
 
 </Student>
 
@@ -78,6 +83,9 @@ and filters out the unqualified.
 
 The other grows from solid assumptions, and everything it derives is qualified
 by nature. We call this *reasoning*.
+<TodoModal>
+highlight with color, emoji and even styles
+</TodoModal>
 
 The reasoning process has some key elements, for example, axioms.
 Every reasoning process must have a beginning.
@@ -107,7 +115,9 @@ and try to deduce with them. If no more information can be deduced, we turn to t
 last method, enumerating possible solutions and seek *truths*.
 
 We consider this a semantic process, and the truths are said to be *satisfying*.
-
+<TodoModal>
+explain what SAT means
+</TodoModal>
 </Teacher>
 
 <Student name="A">
@@ -198,11 +208,13 @@ We easily see that 1561596 has a factor 2, but it may cost a lot to see if
 That asymmetry is partly studied in a field called "theory of computation",
 and I believe we are still very superficial in this aspect.
 
-<Modal />
 </Teacher>
+
+<TodoModal>
+give some exercises
+</TodoModal>
 
 <Guide
 info="You can read more about computation, or move to the next chapter, on 'reasoning like a human'."
 directions={ [["appendix on computation", "/ap1"], ["next chapter", "/ch2"]] }
 />
-// TODO: explain SAT

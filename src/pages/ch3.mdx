@@ -8,6 +8,9 @@ import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
 
 import Choice from "../components/Choice.astro";
+import Guide from "../components/Guide.astro";
+import TodoModal from "../components/TodoModal.astro";
+import Canvas from "../components/Canvas.astro";
 
 <Choice
   info="What is the full name of CNF in the context of proposition logic?"
@@ -41,29 +44,33 @@ let's first introduce the CNF of logic statements.
 - inside the clauses, *literal*s are connected by "or"
 - a literal is either a variable or its negation
 
+What does that remind you of?
+
 </Teacher>
 
 <Student name="A">
 
-It's like, well, "a suitcase should weigh no more than 50kg, and not exceed
-50cm in length, and not exceed 50cm in width". When a new rule arrives,
+It's like, well, "(1) a suitcase should weigh no more than 50kg, and (2) not exceed
+50cm in length, and (3) not exceed 50cm in width". When a new rule arrives,
 we simply add it to the tail.
 
-"And" means that its branches should both be satisfied. A bunch of clauses
-connected by "and"s! It seems our statement has a hash constraint on the
-variables!
+So "and" means that its branches should both be satisfied. A bunch of clauses
+connected by "and"s! It seems our statement has a hard constraint on the
+variables, because we need to satisfy every clause!
 
 </Student>
 
 <Student name="B">
 
-But if the clauses are connected by "or"s, then we will only look at one of them
+But assume that the clauses are connected by "or"s, then we will only look at one of them
 and discard the rest. That will simply be too easy.
 
-Also, there are "or"s Inside the "clause"s. Therefore, we only need to adjust
+Also, there are "or"s Inside the clauses. Therefore, we only need to adjust
 one variable to make a clause true.
 
 </Student>
+
+<img src="/discard.jpg" alt=" person picking up a card and discarding the rest" style="width: 100%;" />
 
 <Teacher>
 
@@ -100,7 +107,7 @@ computers and our satisfiability problem?
 
 <Student name="B">
 
-I'm told that computers are made of little switches. It understands only
+I'm told that computers are made of tiny switches. It understands only
 0 and 1 by turning those switches on and off.
 
 And... A satisfiability problem also deals with variables that take 0 and 1
@@ -110,13 +117,13 @@ as its variables! It seems computers should understand logic by design!
 
 <Student name="you">
 
-I hear that computers are ********\_********.
+I hear that computers are <textarea />.
 
 </Student>
 
 <Student name="A">
 
-I think computers are always following some rules. Maybe they can easily
+I think computing machines are always following some rules. Maybe they can easily
 reason with the logical rules?
 
 </Student>
@@ -131,9 +138,10 @@ as the species of computer breeding offsprings.
 As to computer aided reasoning, or "automated reasoning", they are not so
 mature as to solve hard puzzles for us, but they are evolving.
 
-Computers usually view problems naively. For example, 3 _ 4 _ 5 is two multiplications,
-while 3 \* 12 is one, and complex functions are also built on top of additions
-and multiplications. As a result, we only calculate the operations
+Computers usually view problems naively. For example, $ 3 \times 4 \times 5 $ is two multiplications,
+while $ 3 \times 20 $ is one, and complex functions are also built on top of additions
+and multiplications, which takes a fixed amount of time per operation.
+As a result, we only calculate the operations
 they need to perform as a rough estimate of the run time.
 
 So, if modern satisfiability solvers, as computer programs, does not rely
@@ -145,7 +153,11 @@ any kind of computer programming books.
 Let's stick to the example in chapter 1, exploring only the truth values
 of 3 kid's statements.
 
-...PICS...
+<Canvas />
+<TodoModal>
+Fix the pic, it should be several blocks, in which one is tall and others are
+low. It's better a 3d and can rotate.
+</TodoModal>
 
 In our puzzle, there is only one truth value combination that can satisfy
 the requirements. To find the combination, we need to enumerate every
@@ -153,7 +165,7 @@ possibility.
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 (murmuring) Exactly what I have done?
 
@@ -162,19 +174,74 @@ possibility.
 <Teacher>
 
 So far that's right. However, the number of combinations grows as we add
-more variables. For 2 variables, the computer visits 4 possibilities, and
-performs evaluation of the statements; for 3 variables, it visits 8, and
-performs evaluation of a longer statements. And we all know the possible
-combinations become too many to visit, even for powerful computers.
+more variables. For 2 variables, the computer enumerates 4 possibilities; for 3 variables, it enumerates 8.
+And the possible combinations become too many to enumerate, even for powerful computers.
 
-Modern solvers is capable of dealing with hundreds of variables and thousands
+But modern solvers is capable of dealing with hundreds of variables and thousands
 of clauses, even in the worst case. How can it be?
 
 Well, what we previously do (enumerating everything and evaluating them) is
-called "brutal force".
+called _brutal force search_. Imagine troopers breaking into your house and
+turn it upside down!
 
-However, it's not the case that we will check the fridge for
+However, it's not the case that we humans will search every place for
 a pair of lost keys, right? We always have some intuition about where to find
-things. Some folk managed to teach computers to do that.
+things. And some folk managed to teach computers to do that! It's called
+_heuristic search_.
 
 </Teacher>
+
+<Student name="A">
+
+Make machines intuitive!?
+
+</Student>
+
+<Teacher>
+
+That makes sense. But we have another choice! Instead of a piece of
+information per every possibility, we give the computer some way to
+decide the information itself.
+
+...PICS...
+
+<TodoModal>
+  Fix the pic, it should be several blocks, in which everyone differs in height
+  according to how many clauses it satisfies. better to show the corresponding
+  values on it
+</TodoModal>
+
+As I have said, we have many clauses to satisfy. Once all clauses becomes true,
+we are done. We imagine that the number of true clauses is some indicator,
+just like the progress bar in your downloader!
+
+We instruct the machine to stay
+in one combination, look at its neighbors, and pick up the best one to live in!
+Ideally, the satisfied clauses adds up, and finally everything is fine.
+
+That sort of search, we often call "local search", only checks a "local" property.
+That is, some combinations that live together. It knows very little about the
+general information, and yet it is powerful enough for many problem sets.
+
+Of course, there are harder problems. Imagine searching for a lost letter in a big house,
+while the dumb policemen only knew to ambush the owner's wagon!
+Just like Ellen Poe, we have to rely again on reasoning, though in a structured manner.
+
+</Teacher>
+
+<TodoModal>
+  tell something about local search, introduce dpll/cdcl elegantly
+</TodoModal>
+
+<TodoModal>
+make a widget that shows the knowledge points in this chapter
+</TodoModal>
+
+<Guide
+  info="Read more about search, or go to the next chapter for
+a final (yet) solution for SAT!"
+  directions={[
+    ["appendix 3", "/ap3"],
+    ["next chapter", "ch4"],
+  ]}
+/>

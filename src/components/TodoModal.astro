@@ -1,0 +1,26 @@
+---
+// todo object inline that will change according to mode settings
+const { className } = Astro.props;
+---
+
+<div class="TODO"><b>⚠️ TODO</b><slot /></div>
+
+<style>
+  .TODO {
+    padding: 10px;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    background-color: #fff3cd;
+    color: #856404;
+  }
+
+  .TODO a {
+    color: #4527a0;
+    text-decoration: underline;
+  }
+
+  .TODO code {
+    background-color: #f8f9fa;
+    padding: 3px 5px;
+  }
+</style>

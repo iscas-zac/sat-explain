@@ -1,4 +1,6 @@
 ---
+import TodoModal from "./TodoModal.astro";
+// the footer link of where to go next
 interface Guides {
   info: string;
   directions: [[info: string, ref: string]];
@@ -8,6 +10,9 @@ const { info, directions } = Astro.props as Guides;
 ---
 
 <div style="font-size: larger; margin: 20px;">{info}</div>
+<TodoModal>
+  make links more stylish
+</TodoModal>
 
 {
   directions.map(([info, ref], index) => (

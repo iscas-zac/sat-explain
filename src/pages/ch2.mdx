@@ -7,6 +7,7 @@ layout: '../layouts/Layout.astro'
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
 import Choice from "../components/Choice.astro";
+import TodoModal from "../components/TodoModal.astro";
 
 <Choice
   info="Which is not one of the fundamental laws of logic?"
@@ -48,7 +49,7 @@ or false? What if they are connected by '<font color="yellow">or</font>'?
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 If '<font color="red">it is raining outside</font> <font color="yellow">and</font>
 <font color="blue">I am taking an umbrella</font>' are (both) true,
@@ -61,7 +62,7 @@ question!
 
 </Student>
 
-<Student name="BBZZ">
+<Student name="B">
 
 As to 'or' case, it seems one of the statements should be true, but I
 don't know which one.
@@ -93,7 +94,7 @@ Who can tell me how many possibilities are values for <font color="yellow">or</f
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 There are four in total.
 - 'Something true' <font color="yellow">or</font> 'something false', produces true.
@@ -112,20 +113,20 @@ What are the most elegant rules in your experience?
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="B">
 
 Definitely $$ E = m c^{2} $$.
 
 </Student>
 
 
-<Student name="your name">
+<Student name="you">
 
-Mmm, I like _________________.
+Mmm, I like <TextArea />.
 
 </Student>
 
-<Student name="BBZZ">
+<Student name="A">
 
 Hey hey, I would say the three logical laws, as this is a logic class:
 
@@ -168,6 +169,10 @@ arbitrary statement A and B,
 - A <span style="font: bold;">OR</span> B \
 is equivalent to \
 NOT ((NOT A) <font color="yellow">AND</font> (NOT B)).
+
+<TodoModal>
+put that stuff to "formal" mode and leave a metaphor here
+</TodoModal>
 
 Thus, any occurrence of OR could be replaced by AND and NOT.
 

@@ -13,6 +13,7 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/prism": "^2.1.2",
     "@astrojs/react": "^2.2.1",
+    "@babylonjs/core": "^6.15.0",
     "@fontsource/im-fell-dw-pica": "^5.0.6",
     "@fontsource/im-fell-english-sc": "^5.0.6",
     "@monaco-editor/react": "^4.4.5",
