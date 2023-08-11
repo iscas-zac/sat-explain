@@ -9,6 +9,7 @@ import Teacher from "../components/Teacher.astro";
 import Choice from "../components/Choice.astro";
 import Guide from "../components/Guide.astro";
 import TodoModal from "../components/TodoModal.astro";
+import Summary from "../components/Summary.astro";
 
 <Choice
   info="What is the difference between syntactic and semantic concepts in logic?"
@@ -29,26 +30,60 @@ means something to be proved.": 1,
 
 <Teacher>
 
-Time to start, <b>**bold**</b> truth-seekers! Today we are going to face a logical problem. Before that, have a look at this classic riddle:
+Time to start, <b>**bold**</b> truth-seekers! Today we are going to face a logical problem.
+Before that, have a look at this classic riddle:
 
 Three kids are accused of breaking a window. Their statements are either true or false. Only one is telling a lie.
-The first kid said, "he (the second kid) is telling a lie."
-The second kid said, "he (the third kid) broke the window."
-The third kid yelled, "I didn't!"
+
+- 🐶 said, <span id="stmt1" onClick="
+var stmt1 = document.getElementById('stmt1');
+var stmt2 = document.getElementById('stmt2');
+var stmt3 = document.getElementById('stmt3');
+function click() {
+  stmt1.classList.remove('red-borders');
+  stmt2.classList.add('red-borders');
+  stmt3.classList.add('red-borders');
+};
+click()">"😼 is telling a lie."</span>
+- 😼 said, <span id="stmt2"  onClick="
+var stmt1 = document.getElementById('stmt1');
+var stmt2 = document.getElementById('stmt2');
+var stmt3 = document.getElementById('stmt3');
+function click() {
+  stmt1.classList.remove('red-borders');
+  stmt2.classList.remove('red-borders');
+  stmt3.classList.remove('red-borders');
+};
+click()">"🐰 broke the window."</span>
+- 🐰 yelled, <span id="stmt3" onClick="
+var stmt1 = document.getElementById('stmt1');
+var stmt2 = document.getElementById('stmt2');
+var stmt3 = document.getElementById('stmt3');
+function click() {
+  stmt1.classList.add('red-borders');
+  stmt2.classList.add('red-borders');
+  stmt3.classList.remove('red-borders');
+};
+click()">"I didn't!"</span>
+
+<style>.red-borders \{ border: 1px solid red;\}</style>
+
 <TodoModal>
 make the lines structural
 </TodoModal>
 Who's going to tell me, which one is telling a lie?
+<i style="font-family: Arial, Helvetica, sans-serif;">(click
+each sentence see the contradictions if it is a lie.)</i>
 
 </Teacher>
 
 <Student name="A">
 
-I might have seen this puzzle before. Let's assume all kids are telling truth,
-and what kid 1 said shows that kid 2 is telling a lie. A contradiction!
+I might have seen this puzzle before. Let's assume if 🐰 is telling a lie,
+and what 🐶 said shows that 😼 is telling a lie. A contradiction!
 
-Well, let's move on: if kid 1 is telling a lie, then kid 2 claims kid 3 broke the window while
-kid 3 denies, another contradiction!
+Well, let's move on: if 🐶 is telling a lie, then 😼 claims 🐰 broke the window while
+🐰 denies, another contradiction!
 
 ...
 <TodoModal>
@@ -59,17 +94,26 @@ make a table or something
 
 <Student name="B">
 
-Hey, move aside! I have found a secret. The statements of kid 1 and kid 2
+Hey, move aside! I have found a secret. The statements of 🐶 and 😼
 always contradicts, and at most one of them is true!
 
-The same is for kid 2 and kid 3. As a result, there is a lier between kid 1
-and kid 2, as well as between kid 2 and kid 3. As we know there is at most
-1 lier among the three, kid 2 is the lier!
+The same is for 😼 and 🐰. As a result, there is a lier between 🐶
+and 😼, as well as between 😼 and 🐰. As we know there is at most
+1 lier among the three, 😼 is the lier!
 
 </Student>
 
 <Student name="A">
+
+... If 😼 is telling a lie, then 🐶 is right, and 🐰 didn't broke the window.
+
 I have just finish my enumeration, and I agree that's correct.
+</Student>
+
+<Student name="you">
+
+Whoa, I found a empty note? I can even write something here!  hfiahfcuiRHAUIHF...
+
 </Student>
 
 <Teacher>
@@ -97,9 +141,9 @@ And of course there is always a conclusion to be proved.
 
 </Teacher>
 
-<Student name="you">
+<Student name="B">
 
-Wow, this is where syntax comes in! So syntax is a way to rule out invalid
+This is where syntax comes in! So syntax is a way to rule out invalid
 things, by only a few characteristics on them!
 
 </Student>
@@ -156,7 +200,7 @@ condition true, and they don't need to make the conclusion true then.
 
 <Teacher>
 
-Yep, although your sentence is an arithmetic one and beyond our propositional logic.
+Yep, despite that your sentence is an arithmetic statement and beyond our propositional logic.
 It is sometimes stated as "anything can be derived from a contradiction".
 By the way, the "semantical validity" is referred to as "derivability" here,
 to avoid confusion with the "validity" of the statement.
@@ -165,7 +209,7 @@ to avoid confusion with the "validity" of the statement.
 
 <Student name="A">
 
-I got it. Let me explain the syntactic and semantic consistency!
+I got it. Let me explain the semantic consistency!
 
 As stated before, the semantic consistency of a group of statements are
 actually about finding a set of values in the world to make every statement
@@ -182,7 +226,7 @@ and we are going to dig deep in that finding process later.
 
 <Student name="B">
 
-And finally syntactic consistency! Like what satisfiability is to derivability,
+And finally, syntactic consistency! Like what satisfiability is to derivability,
 it's also about finding a way to reason from some statement to some others!
 
 Wait, that doesn't make sense. Anything can be derived from a contradiction,
@@ -201,14 +245,27 @@ However, nothing tells you if they are consistent!
 It's indeed a weird thing. You can easily tell something is not *consistent*,
 but can never make sure it is *consistent*.
 
-But try to recall the last time when you calculate the prime factors of a large number!
+But try to recall the last time when you factorize a large number!
 We easily see that 1561596 has a factor 2, but it may cost a lot to see if
 1594897 is itself a prime number.
 
 That asymmetry is partly studied in a field called "theory of computation",
-and I believe we are still very superficial in this aspect.
+and I believe we are still very superficial in that aspect.
 
 </Teacher>
+
+<Summary
+title="Summary of part 1"
+description="what you need to know after reading ..."
+>
+
+<TodoModal>
+there is better a link to the place where it first appears
+</TodoModal>
+
+- semantic (satisfiability, derivability) and syntactic (consistency, validity) concepts
+- bbb
+</Summary>
 
 <TodoModal>
 give some exercises

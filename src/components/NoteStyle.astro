@@ -1,17 +1,20 @@
 ---
 import "@fontsource/im-fell-dw-pica";
-const { color } = Astro.props;
+import "@fontsource/indie-flower";
+var { color, contenteditable, font } = Astro.props;
+if (contenteditable == null) contenteditable = false;
+if (font == null) font = "IM Fell DW Pica";
 const maxDegree = 10;
 const randomRotation = `${Math.floor(
   Math.random() * maxDegree - maxDegree / 2
 )}deg`;
 ---
 
-<div>
+<div contenteditable={ contenteditable }>
   <slot />
-  <style define:vars={{ randomRotation, color }}>
+  <style define:vars={{ randomRotation, color, font }}>
     div {
-      font-family: "IM Fell DW Pica", sans-serif;
+      font-family: var(--font), sans-serif;
       font-size: 20px;
       line-height: 1.5;
       margin: 16px;

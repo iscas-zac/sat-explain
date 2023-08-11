@@ -20,7 +20,7 @@ function hashCode(str: string): number {
   // return h & 0xFFFFFFFF
 }
 
-const h1 = Math.abs(hashCode(name + "55555") % 256);
+const h1 = Math.abs(hashCode(name + "999999999") % 256);
 const h2 = Math.abs(hashCode(name + "22") % 256);
 const h3 = Math.abs(hashCode(name + "4444") % 256);
 const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
@@ -57,7 +57,8 @@ const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
       />
     )
   }
-  <NoteStyle color={backgroundColor}>
+  <NoteStyle color={backgroundColor} contenteditable={ name === "you" }
+    font = { name == "you" ? "Indie Flower" : "IM Fell DW Pica" }>
     <slot />
   </NoteStyle>
 </div>
