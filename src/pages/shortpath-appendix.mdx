@@ -1,6 +1,12 @@
-import TodoModal from "../components/TodoModal.astro";
+---
+title: "Cheatsheet"
+author: "BAA"
+layout: "../layouts/Layout.astro"
+---
 
-Don't just leave!
+import Choice from "../components/Choice.astro";
+import Guide from "../components/Guide.astro";
+import TodoModal from "../components/TodoModal.astro";
 
 It seems that today's network dwellers are capable of discovering
 a whole new world with a single keyword, and here are a few keywords
@@ -24,6 +30,8 @@ and **DPLL(T)** is a SMT solver algorithm as a extension of CDCL.
 
 **Z3**, **CVC5** and their peers are the cutting edge SAT/SMT solvers.
 
-<TodoModal>
-provide a footer
-</TodoModal>
+<Guide
+directions={ [["finish", "/afterwords"]] }
+>
+Congratulations! You've finish this tutorial.
+</Guide>

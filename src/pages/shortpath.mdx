@@ -1,29 +1,72 @@
+---
+title: "Cheatsheet"
+author: "BA"
+layout: "../layouts/Layout.astro"
+---
 
-1. We all know equations on real number domain are studied a lot and
-have ways to solve, and yes-or-no variables can also form equations.
+import Choice from "../components/Choice.astro";
+import Guide from "../components/Guide.astro";
+import TodoModal from "../components/TodoModal.astro";
 
-2. Propositional logic argues with many single decisions, called variables.
+<Choice
+  info="Experimental feature: story-based learning?"
+  options={{}}
+  directions={[
+    ["I'd like some concepts.", "#"],
+    ["I'd read a story!", "/shortpath-story"],
+  ]}
+  submit = { false }
+/>
 
-3. In Boolean Satisfiabilty Problem (SAT), we find a set of values that
+1. We all know equations with unknown variables on real number domain are studied a lot.
+And **yes-or-no variables can also form equations**.
+We call that Boolean algebra.<span class="formal"></span>
+
+2. **Propositional logic deals with formulas**, in which
+everything is abstracted as a Boolean variable. A formula consists
+of variables and is true or false according to the truth values of variables.
+<span class="formal">A formula is actually recursively defined.</span>
+
+3. In Boolean Satisfiabilty Problem (**SAT**), we try find a set of values that
 are either true or false to make the formula true.
 
-4. SAT is a family of problems that are perverse in real world.
+4. SAT is a family of problems that are pervasive in the real world. For example,
+the input and output of logic gate circuits are perfectly described by Boolean formulas.
 
-5. We use operators in logic formula to form CNF.
+5. We use **operators** in logic formula to form CNF. Some well-known operators
+are "and"<span class="formal"> ($ \wedge $)</span>, "or"<span class="formal"> ($ \wedge $)</span>,
+and "not"<span class="formal"> ($ \neg $)</span>. <span class="formal">operators
+are simply a mapping from any numbers of Boolean values to a Boolean value(
+$ \mathrm{op}: \{ \mathbf{true}, \mathbf{false} \}^n \mapsto \{ \mathbf{true}, \mathbf{false} \} $).</span>
 
-6. SAT is hard to solve.
+6. SAT is **hard** to solve. Or strictly, SAT solving is **hard to scale**. For example,
+for 30 variables, there are $2^{30}$ combinations of values, and for 31 variables
+there are $2^{31}$. Add a variable and see a double in run time to find the answer.
 
-7. We have rules and can syntactically reason with them.
+7. We have rules and can **syntactically reason** with formulas. For example, for
+variables A, B, if A and B is true, then A is true and B is true.
 
-8. We can semantically enumerate the possibilities of combinations and search for the
-solution, which is hard.
+8. We can **semantically enumerate** the possibilities of combinations and **search** for the
+valid solution.
 
-9. Search can be guided to be efficient.
+9. Search can be guided to be efficient. A search process is an iteration.
+We can find a better solution from the current solution.
 
-10. Typically, a DPLL or CDCL process is used for computers to solve
-a SAT, which have the best of both worlds.
-
-import TodoModal from "../components/TodoModal.astro";
 <TodoModal>
-footer
+better phrase, and formal parts
 </TodoModal>
+
+10. Typically, a DPLL or CDCL algorithm is used for computers to solve
+a SAT problem, with the best of both worlds. It adopts some reasoning methods
+to rule out bad solutions, and searches among the "good-looking" ones.
+
+<Guide
+directions={ [["I've read enough.", "/afterwords"], ["Give me keywords.", "/shortpath-appendix"]] }
+>
+This should give you a rough idea on how scientists work. But our Internet-based
+searching is so powerful, that everyone can teach themselves a lot by
+simply typing some letters in that browser bar.
+
+Therefore, I collect some keywords so that you can look for it yourself.
+Go for it or go to the final page to end this journey.
+</Guide>

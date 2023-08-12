@@ -4,9 +4,10 @@ interface Choices {
   info: string;
   options: { [name: string]: number };
   directions: [[info: string, ref: string]];
+  submit: boolean;
 }
 
-const { info, options, directions } = Astro.props as Choices;
+const { info, options, directions, submit = true } = Astro.props as Choices;
 ---
 
 <dialog>
@@ -21,9 +22,11 @@ const { info, options, directions } = Astro.props as Choices;
       ))
     }
   </form>
-  <button style= "font-size: larger;" onclick="
-  submit()
-  ">confirm</button>
+  { submit &&
+    <button style= "font-size: larger;" onclick="
+    submit()
+    ">confirm</button>
+  }
   {
     directions.map(([info, ref], index) =>
       ref === "#" ? (

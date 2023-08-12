@@ -1,6 +1,6 @@
 ---
 title: Part 2 - solving problems as human nature
-author: AABB
+author: AA
 layout: '../layouts/Layout.astro'
 ---
 
@@ -8,6 +8,7 @@ import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
 import Choice from "../components/Choice.astro";
 import TodoModal from "../components/TodoModal.astro";
+import Guide from "../components/Guide.astro";
 
 <Choice
   info="Which is not one of the fundamental laws of logic?"
@@ -122,7 +123,7 @@ Definitely $$ E = m c^{2} $$.
 
 <Student name="you">
 
-Mmm, I like <TextArea />.
+Mmm, I like ____.
 
 </Student>
 
@@ -178,7 +179,7 @@ Thus, any occurrence of OR could be replaced by AND and NOT.
 
 </Teacher>
 
-<Student>
+<Student name="B">
 
 How long the rule is! But it indeed looks like the distributive law in
 elementary arithmetic.
@@ -228,7 +229,7 @@ the sentences of kid 1, 2 and 3 is a truth, and a variable D to indicate
 
 </Teacher>
 
-<Student name="AABB">
+<Student name="A">
 
 I will do the labor. If B is true, then kid 3 broke the window and D is
 true. We say "not B or D" then.
@@ -238,7 +239,7 @@ If C is true, then kid 3 didn't break the window and D is false. We say
 
 </Student>
 
-<Student name="BBZZ">
+<Student name="B">
 
 Since we need to satisfy both the two compound statements, we say "
 'not B or D' and 'not C or not D'", or
@@ -274,8 +275,19 @@ an operator that can alone represent them all?
 
 </Teacher>
 
-// TODO: rewrite some letter symbols with emoji
-// TODO: unified coloring
+<TodoModal>
+unify the coloring
+</TodoModal>
+<TodoModal>
 // TODO: graphing the reasoning process
+</TodoModal>
+<TodoModal>
 // TODO: add the reason why "if .. then .." is equal to "not .. or .."
 // TODO: explain the truth table (or in ch1?)
+</TodoModal>
+
+<Guide
+directions={ [["appendix on various kind of logic", "/ap2"], ["next chapter", "/ch3"]] }
+>
+You can read more about logic branches, or move to the next chapter, on 'search like a machine'.
+</Guide>

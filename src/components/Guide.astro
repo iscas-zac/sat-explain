@@ -9,7 +9,7 @@ interface Guides {
 const { info, directions } = Astro.props as Guides;
 ---
 
-<div style="font-size: larger; margin: 20px;">{info}</div>
+<div style="font-size: larger; margin: 20px;">{info}<slot /></div>
 <TodoModal>
   make links more stylish
 </TodoModal>

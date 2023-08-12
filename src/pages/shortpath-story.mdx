@@ -1,3 +1,11 @@
+---
+title: "Cheatsheet"
+author: BB
+layout: "../layouts/Layout.astro"
+---
+
+import Choice from "../components/Choice.astro";
+import Guide from "../components/Guide.astro";
 import TodoModal from "../components/TodoModal.astro";
 
 Three princes
@@ -8,6 +16,8 @@ a puzzle.
 
 ![MJ prompt: a prince making orders to pipeline workers](/prince3.jpg)
 
-<TodoModal>
-provide a footer
-</TodoModal>
+<Guide
+directions={ [["finish", "/afterwords"]] }
+>
+Congratulations! You've finish this tutorial.
+</Guide>
