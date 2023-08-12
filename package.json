@@ -23,6 +23,7 @@
     "astro": "^2.8.0",
     "astro-headers": "^0.0.7",
     "astro-icon": "^0.8.1",
+    "driver.js": "^1.2.1",
     "monaco-editor": "^0.40.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

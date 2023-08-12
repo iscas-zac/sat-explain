@@ -11,29 +11,45 @@
   .invisible {
     display: none;
   }
+
+  select {
+    color: #000;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: auto;
+    height: 30px;
+    text-align: left;
+  }
+
+  select:focus {
+    outline: none;
+  }
 </style>
 
 <script is:inline>
-const selectElement = document.getElementById("mode");
-console.log(selectElement);
-const visibility_update = function () {
-  for (const label of [
-    "plain",
-    "formal",
-    "code",
-    "voice",
-    "history",
-    "TODO",
-  ]) {
-    for (const elem of document.getElementsByClassName(label)) {
-      elem.classList.add("invisible");
+  const selectElement = document.getElementById("mode");
+  console.log(selectElement);
+  const visibility_update = function () {
+    for (const label of [
+      "plain",
+      "formal",
+      "code",
+      "voice",
+      "history",
+      "TODO",
+    ]) {
+      for (const elem of document.getElementsByClassName(label)) {
+        elem.classList.add("invisible");
+      }
     }
-  }
 
-  for (const elem of document.getElementsByClassName(selectElement.value)) {
-    elem.classList.remove("invisible");
-  }
-};
-selectElement.addEventListener("change", visibility_update);
-document.addEventListener("DOMContentLoaded", visibility_update);
+    for (const elem of document.getElementsByClassName(selectElement.value)) {
+      elem.classList.remove("invisible");
+    }
+  };
+  selectElement.addEventListener("change", visibility_update);
+  document.addEventListener("DOMContentLoaded", visibility_update);
 </script>

@@ -1,9 +1,13 @@
+---
+title: "From riddles to DPLL(T): An Adventure"
+author: AABB
+layout: "../layouts/Layout.astro"
+---
+
 import Student from "../components/Student.astro";
 import Teacher from "../components/Teacher.astro";
 import TodoModal from "../components/TodoModal.astro";
-
-
-# From riddles to DPLL(T): An Adventure
+import Highlighter from "../components/Highlighter.astro";
 
 <TodoModal>
 add a discussion link
@@ -18,7 +22,6 @@ about the SAT problem and the DPLL, CDCL and DPLL(T) algorithms.
 
 But first, let me ask you readers a few questions. Please choose best answers and
 follow the path.
-
 
 <TodoModal>
 beautify the select thing, better add a video option, make a highlight
@@ -48,5 +51,7 @@ Appendix 1 - consistency, completeness and the limit
 
 1. any feedback is welcome at https://github.com/iscas-zac/sat-explain.
 2. flush the page if the notes are too tilted.
-3. use different browsing mode on the upper right selection bar.
+3. use <Highlighter target="mode" bare="true" description="oops, you found me?">
+different browsing mode </Highlighter>
+on the upper right selection bar.
 4. 
