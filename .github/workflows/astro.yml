@@ -70,7 +70,7 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "https://peb.pages.dev" \
-            --base "/sat-explain"
+            --base "writing/sat-explain/"
       # - uses: actions/checkout@v3
       #   with:
       #     token: ${{ secrets.PAT_TOKEN }}
@@ -84,6 +84,6 @@ jobs:
           git config user.name "github-actions[bot]"
           cp -r ../sat-explain/dist writing/sat-explain
           git add .
-          git commit -m "auto push sat-explain `$(date -u +"%Y-%m-%dT%H:%M:%SZ")`"
+          git commit -m "auto push sat-explain $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           git push https://github-actions[bot]:${{ secrets.PAT_TOKEN }}@github.com/iscas-zac/peb.git
         working-directory: ${{ env.BUILD_PATH }}
