@@ -75,5 +75,6 @@ jobs:
           cp -r ../dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
+          gh auth status
           git push
         working-directory: ${{ env.BUILD_PATH }}
