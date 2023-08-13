@@ -33,9 +33,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-      pull-requests: write
+    permissions: write-all
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -77,8 +75,8 @@ jobs:
         run: |
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           cp -r ../dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
