@@ -66,6 +66,7 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "https://peb.pages.dev" \
             --base "/sat-explain"
+          ls -l
         working-directory: ${{ env.BUILD_PATH }}
 
   deploy:
