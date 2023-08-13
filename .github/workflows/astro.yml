@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -75,8 +75,8 @@ jobs:
         run: |
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          git config user.email "askingyour@126.com"
+          git config user.name "iscas-zac"
           cp -r ../dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
