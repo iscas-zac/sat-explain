@@ -75,9 +75,11 @@ jobs:
     steps:
       - name: Deploy to CF Pages
         run: |
+          cd ..
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
           git config --local user.email "askingyour@126.com"
-          cp -r ${{ env.BUILD_PATH }} writing/sat-explain
+          ls -l
+          cp -r ../sat-explain writing/sat-explain
           git commit -m "auto push sat-explain"
           git push
