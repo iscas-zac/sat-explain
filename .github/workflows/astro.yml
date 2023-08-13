@@ -70,12 +70,12 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "https://peb.pages.dev" \
             --base "/sat-explain"
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: actions/checkout@v3
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
       - name: push to blog repo
         run: |
-          ls -l .
+          git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
