@@ -74,12 +74,12 @@ jobs:
       - name: push to blog repo
         run: |
           cd ..
-          git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
+          git clone https://github.com/iscas-zac/peb
           cd peb
           git config user.email "askingyour@126.com"
           git config user.name "iscas-zac"
           cp -r ../sat-explain/dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
-          git push
+          git push https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
         working-directory: ${{ env.BUILD_PATH }}
