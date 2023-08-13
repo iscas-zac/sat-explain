@@ -70,8 +70,8 @@ jobs:
         run: |
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
-          git config user.name "iscas-zac"
-          git config user.email "askingyour@126.com"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           cp -r ../dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
