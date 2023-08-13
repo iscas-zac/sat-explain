@@ -10,27 +10,118 @@ import Snippet from "../components/Snippet.astro";
 import TodoModal from "../components/TodoModal.astro";
 import Guide from "../components/Guide.astro";
 
-## Part 4 - DPLL, CDCL and DPLL(T):
-
 > I wrote more than three hundred computer programs while preparing this
 material, because I find that I don't understand things unless I try to program
 them. - Don Knuth, in *The Art of Computer Programming, Volume 4 Fascicle 6, Satisfiability*
+
 <TodoModal>
 adjust the quote format
 </TodoModal>
 
-(the DPLL(T) explained for the impatient)
+<Teacher>
+We have seen the computer's way to express a propositional
+logic problem as a space of possibilities. It then searches in the space,
+enumerating as many as possible.
 
-Many classic puzzles, as well as real-life problems, can be abstracted
-as a <b>SAT problem</b>, 
+However, we haven't mentioned the exact searching method other than brutal force yet.
+Instead of visiting all possible combination of truth values, we can identify
+a family of unsatisfactory solutions.
+
+As we know, every clause has a few concerned variables.
+
+</Teacher>
+
+<Student name="B">
+
+It's like that every
+traffic rule only cares about a certain part of one's driving style.
+
+Although we need to satisfy every rule to drive safely, we only need to adjust the
+relative location of the safety belt and our body to make 'safety belt rule'
+happy.
+
+</Student>
+
+<Teacher>
+
+Exactly. If the belt is loosened, the traffic police will be unhappy
+no matter how we use the headlights.
+
+The same is the clauses. If a clause evaluates to false, we cannot make
+the whole formula satisfy without adjusting the variables which it cares about.
+Thus, we can discard a lot of assignments by simply looking at a few
+variable truth values in them.
+
+When we assign all variables in a clause to some value and make it
+unsatisfied, we consider it as a **conflict**, and try to recover to
+a previous state.
+
+</Teacher>
+
+<Student name="A">
+
+Wait... Assign? In a search over truth combinations, we always have
+all values assigned and simply flip some to get to a new combination!
+
+</Student>
+
+<Teacher>
+
+You are right. This time, we are still conducting a search, but in the
+space of partial assignment. That is, we start with no variable assigned
+(or make them assigned to 'unknown'), and proceed by assigning a value
+to some variable.
+
+The DPLL algorithm, roughly speaking, is a sequence of assignments.
+Every assignment is decided by either reasoning or attempting. If an
+assignment leads to a conflict, the last attempt is re-considered.
+
+</Teacher>
+
+<Student name="B">
+
+Is this reasoning the same as we've talked before, when we decide a
+statement is right according to some previous knowledge?
+
+</Student>
+
+<Teacher>
+
+It's a bit close. We have talked about unit propagation to get a result
+statement, and this time we use unit propagation to get some assignments.
+When a clause contains only one variable, it is assigned to satisfy the
+clause.
+
+</Teacher>
+
+<Student name="A">
+
+This time let me give an example! Umm... It's like the school rule, when
+Mistress shouts at us, "Don't talk!" And the headmaster says, "Don't talk or get
+out of the school!"
+
+Mistress's instruction contains one variable. We satisfy her requirements,
+and the headmaster's instruction is then satisfied automatically.
+
+</Student>
+
+<Teacher>
+
+Oh, what an example! You are right anyway, but don't let your teacher get
+mad at you again!
+
+The really tricky part in DPLL is how to make an attempt. The way of choosing
+a variable, assigning it
 
 <TodoModal>
 write about DPLL and CDCL, quote https://cse442-17f.github.io/Conflict-Driven-Clause-Learning/.
 </TodoModal>
 
-<Snippet title="prolog" />
+</Teacher>
+
 <TodoModal>
 finish the Snippet
+<Snippet title="prolog" />
 </TodoModal>
 
 <Guide
