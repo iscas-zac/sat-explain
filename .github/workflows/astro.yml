@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: "." # default value when not using subfolders
+  BUILD_PATH: "./sat-explain" # default value when not using subfolders
   # BUILD_PATH: subfolder
 
 jobs:
@@ -73,11 +73,12 @@ jobs:
       #     token: ${{ secrets.GITHUB_TOKEN }}
       - name: push to blog repo
         run: |
+          cd .
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
           git config user.email "askingyour@126.com"
           git config user.name "iscas-zac"
-          cp -r ../dist writing/sat-explain
+          cp -r ..sat-explain/dist writing/sat-explain
           git add .
           git commit -m "auto push sat-explain"
           git push
