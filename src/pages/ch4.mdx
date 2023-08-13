@@ -110,12 +110,48 @@ and the headmaster's instruction is then satisfied automatically.
 Oh, what an example! You are right anyway, but don't let your teacher get
 mad at you again!
 
-The really tricky part in DPLL is how to make an attempt. The way of choosing
-a variable, assigning it
+The really tricky part in DPLL is how to make an attempt, that is, the way of choosing
+a variable to assign and which value to assign it to.
+
+That indeed deserves a whole book to explain, not to mention DPLL's various
+variants.
+
+But we are especially interested in one of its descendents, the CDCL algorithm.
+Basically it is DPLL plus some extra features.
+
+One of them is clause learning, which is how it get the name ("Conflict-Driven
+Clause Learning"). When it encounters a conflict, it somehow records the
+conflict with a new clause, and appends it to the original formula.
+
+</Teacher>
+
+<Student name="A">
+
+So the formula is growing, as if it is alive!
+
+Let me give a new metaphor. Suppose someone puts their hands onto the hotwire,
+while standing on the floor, and they gets electrified. They then knows that
+the two actions should not be done at the same time.
+
+I'm only wondering if the formula is going to get too long.
+
+</Student>
+
+<Teacher>
+
+I should have foreseen such an example! But that is roughly correct.
+As to the length, well, that is why CDCL is more complicated than DPLL.
+The formula should keep a delicate balance between its complexity and the
+information it has to provide.
+
+CDCL usually has some other features. ...
 
 <TodoModal>
-write about DPLL and CDCL, quote https://cse442-17f.github.io/Conflict-Driven-Clause-Learning/.
+write more about CDCL and the formal part
 </TodoModal>
+
+By the way, there is a good resource to show how the two algorithms execute
+and the difference between them at https://cse442-17f.github.io/Conflict-Driven-Clause-Learning/.
 
 </Teacher>
 
