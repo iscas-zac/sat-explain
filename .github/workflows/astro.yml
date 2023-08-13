@@ -66,21 +66,13 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "https://peb.pages.dev" \
             --base "/sat-explain"
-          ls -l
-        working-directory: ${{ env.BUILD_PATH }}
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to CF Pages
+      - name: push to blog repo
         run: |
-          cd ..
           git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
           cd peb
           git config user.name "iscas-zac"
           git config user.email "askingyour@126.com"
-          cp -r ../sat-explain/dist writing/sat-explain
+          cp -r ../dist writing/sat-explain
           git commit -m "auto push sat-explain"
           git push
+        working-directory: ${{ env.BUILD_PATH }}
