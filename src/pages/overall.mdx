@@ -24,7 +24,10 @@ make this sound more natural?
 Well, pretend you were putting your finger on that weird-looking book,
 thinking that it would bring you some knowledge on the logical decision.
 
-![a mysterious person under a fancy cloak looking at a book, simple lineart, parchment, comic style, sketch](/preface.png)
+<img src={ `${import.meta.env.BASE_URL}preface.png` }
+alt="a mysterious person under a fancy cloak looking at a book, 
+simple lineart, parchment, comic style, sketch"
+style="width: 100%"/>
 
 Something fell from between the pages.
 
@@ -35,15 +38,15 @@ beautify the select thing, better add a video option
 
 <Guide
 info="When you knew what had happened, you said to yourself."
-directions={ [["A bunch of notes! I wish somebody just explain logic in a friendly fashion.", "/ch1"],
-["I don't have much time. Just check that out.", "/shortpath"]] }
+directions={ [["A bunch of notes! I wish somebody just explain logic in a friendly fashion.", `${import.meta.env.BASE_URL}ch1`],
+["I don't have much time. Just check that out.", `${import.meta.env.BASE_URL}shortpath`]] }
 />
 
 # tips
 
-1. any feedback is welcome at https://github.com/iscas-zac/sat-explain/discussions.
-2. flush the page if the notes are too tilted to read.
-3. use <Highlighter target="mode" bare="true" description="oops, you found me?">
+1. Any feedback is welcome at https://github.com/iscas-zac/sat-explain/discussions.
+2. Some effects are not implemented yet.
+3. Use <Highlighter target="mode" bare="true" description="oops, you found me?">
 different browsing mode </Highlighter>
 on the upper right selection bar.
 4. Have fun!

@@ -24,7 +24,7 @@ means something to be proved.": 1,
   }}
   directions={[
     ["I'd read through this chapter", "#"],
-    ["I'd skip to next chapter", "/ch2"],
+    ["I'd skip to next chapter", `${import.meta.env.BASE_URL}ch2`],
   ]}
 />
 
@@ -273,5 +273,6 @@ give some exercises
 
 <Guide
 info="You can read more about computation, or move to the next chapter, on 'reasoning like a human'."
-directions={ [["appendix on computation", "/ap1"], ["next chapter", "/ch2"]] }
+directions={ [["appendix on computation", `${import.meta.env.BASE_URL}ap1`],
+["next chapter", `${import.meta.env.BASE_URL}ch2`]] }
 />

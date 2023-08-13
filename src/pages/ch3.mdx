@@ -22,7 +22,7 @@ import Canvas from "../components/Canvas.astro";
   }}
   directions={[
     ["I'd read through this chapter", "#"],
-    ["I'd skip to next chapter", "/ch4"],
+    ["I'd skip to next chapter", `${import.meta.env.BASE_URL}ch4`],
   ]}
 />
 
@@ -70,7 +70,8 @@ one variable to make a clause true.
 
 </Student>
 
-<img src="/discard.jpg" alt=" person picking up a card and discarding the rest" style="width: 100%;" />
+<img src={ `${import.meta.env.BASE_URL}discard.jpg` }
+alt=" person picking up a card and discarding the rest" style="width: 100%;" />
 
 <Teacher>
 
@@ -248,7 +249,7 @@ make a summary that shows the knowledge points in this chapter
   info="Read more about search, or go to the next chapter for
 a final (yet) solution for SAT!"
   directions={[
-    ["appendix 3", "/ap3"],
-    ["next chapter", "ch4"],
+    ["appendix 3", `${import.meta.env.BASE_URL}ap3`],
+    ["next chapter", `${import.meta.env.BASE_URL}ch4`],
   ]}
 />

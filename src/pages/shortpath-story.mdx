@@ -14,10 +14,12 @@ write a short story, in which provide some pics, better provide
 a puzzle.
 </TodoModal>
 
-![MJ prompt: a prince making orders to pipeline workers](/prince3.jpg)
+<img src={ `${import.meta.env.BASE_URL}prince3.jpg` }
+alt="MJ prompt: a prince making orders to pipeline workers"
+style="width: 100%"/>
 
 <Guide
-directions={ [["finish", "/afterwords"]] }
+directions={ [["finish", `${import.meta.env.BASE_URL}afterwords`]] }
 >
 Congratulations! You've finish this tutorial.
 </Guide>

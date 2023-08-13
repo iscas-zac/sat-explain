@@ -20,7 +20,7 @@ import Guide from "../components/Guide.astro";
   }}
   directions={[
     ["I'd read through this chapter", "#"],
-    ["I'd skip to next chapter", "/ch3"],
+    ["I'd skip to next chapter", `${import.meta.env.BASE_URL}ch3`],
   ]}
 />
 
@@ -301,7 +301,8 @@ unify the coloring
 </TodoModal>
 
 <Guide
-directions={ [["appendix on various kind of logic", "/ap2"], ["next chapter", "/ch3"]] }
+directions={ [["appendix on various kind of logic", `${import.meta.env.BASE_URL}ap2`],
+["next chapter", `${import.meta.env.BASE_URL}ch3`]] }
 >
 You can read more about logic branches, or move to the next chapter, on 'search like a machine'.
 </Guide>

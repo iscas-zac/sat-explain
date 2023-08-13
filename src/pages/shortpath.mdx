@@ -13,7 +13,7 @@ import TodoModal from "../components/TodoModal.astro";
   options={{}}
   directions={[
     ["I'd like some concepts.", "#"],
-    ["I'd read a story!", "/shortpath-story"],
+    ["I'd read a story!", `${import.meta.env.BASE_URL}shortpath-story`],
   ]}
   submit = { false }
 />
@@ -61,7 +61,7 @@ a SAT problem, with the best of both worlds. It adopts some reasoning methods
 to rule out bad solutions, and searches among the "good-looking" ones.
 
 <Guide
-directions={ [["I've read enough.", "/afterwords"], ["Give me keywords.", "/shortpath-appendix"]] }
+directions={ [["I've read enough.", `${import.meta.env.BASE_URL}afterwords`], ["Give me keywords.", `${import.meta.env.BASE_URL}shortpath-appendix`]] }
 >
 This should give you a rough idea on how scientists work. But our Internet-based
 searching is so powerful, that everyone can teach themselves a lot by
