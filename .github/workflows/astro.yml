@@ -58,31 +58,25 @@ jobs:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+            --site "https://peb.pages.dev" \
+            --base "/sat-explain"
         working-directory: ${{ env.BUILD_PATH }}
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ${{ env.BUILD_PATH }}/dist
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Deploy to CF Pages
+        run: |
+          git clone https://iscas-zac:${{ env.BUILD_PATH }}github.com/iscas-zac/peb
+          git config --local user.email "askingyour@126.com"
+          cp ${{ env.BUILD_PATH }} peb/writing/sat-explain
+          git commit -m "auto push sat-explain"
+          git push
