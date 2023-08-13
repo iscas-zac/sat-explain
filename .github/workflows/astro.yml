@@ -73,6 +73,7 @@ jobs:
           git config user.name "iscas-zac"
           git config user.email "askingyour@126.com"
           cp -r ../dist writing/sat-explain
+          git add .
           git commit -m "auto push sat-explain"
           git push
         working-directory: ${{ env.BUILD_PATH }}
