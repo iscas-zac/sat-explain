@@ -32,6 +32,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -66,9 +70,12 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "https://peb.pages.dev" \
             --base "/sat-explain"
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: push to blog repo
         run: |
-          git clone https://iscas-zac:${{ secrets.GITHUB_TOKEN }}@github.com/iscas-zac/peb
+          ls -l .
           cd peb
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
