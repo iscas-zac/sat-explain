@@ -80,7 +80,6 @@ jobs:
           cd peb
           git config user.name "iscas-zac"
           git config user.email "askingyour@126.com"
-          ls -l ..
-          cp -r ../sat-explain writing/sat-explain
+          cp -r ../sat-explain/dist writing/sat-explain
           git commit -m "auto push sat-explain"
           git push
