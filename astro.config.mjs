@@ -7,7 +7,6 @@ import Editor from "@monaco-editor/react";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "sat-explain/",
   integrations: [mdx({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex]
