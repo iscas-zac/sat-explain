@@ -7,6 +7,13 @@ import Editor from "@monaco-editor/react";
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    // TODO: for now use hardcode
+    "/": 'writing/sat-explain/overall'
+  },
+  experimental: {
+		redirects: true,
+	},
   integrations: [mdx({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex]
