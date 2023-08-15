@@ -9,17 +9,70 @@ interface Guides {
 const { info, directions } = Astro.props as Guides;
 ---
 
-<div style="font-size: larger; margin: 20px;">{info}<slot /></div>
-<TodoModal>
-  make links more stylish
-</TodoModal>
+<div style="margin: 100px 0;" />
 
-{
-  directions.map(([info, ref], index) => (
-    <div>
+<div id="bordered">
+  <style>
+  #bordered {
+    border-top: 2px dotted red;
+    border-bottom: 2px dotted red;
+  }
+
+/* Underline on hover */
+.pale {
+  text-decoration: none;
+}
+
+.pale:hover {
+  text-decoration: underline;
+}
+
+/* Colored background on hover */
+.pale {
+  background-color: transparent;
+}
+
+.pale:hover {
+  background-color: #eee; 
+}
+
+/* Bordered on hover */  
+.pale {
+  border: 0;
+}
+
+.pale:hover {
+  border-bottom: 1px solid #333;
+}
+
+/* Animated underline */
+.pale {
+  background: linear-gradient(#eee, #eee) no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
+}
+
+.pale:hover {
+  background-size: 100% 2px;
+}
+</style>
+  <i>{info}<slot /></i>
+  <TodoModal>
+    make links more stylish
+  </TodoModal>
+
+  <div style="margin: 50px 0;" />
+
+  <div style="display: flex;
+  justify-content: space-between; ">
+  {
+    directions.map(([info, ref], index) => (
       <a class="pale" id={`ref-${index + 1}`} href={ref}>
         {info}
       </a>
-    </div>
-  ))
-}
+    ))
+  }
+  </div>
+</div>
+
+<div style="margin: 200px 0;" />

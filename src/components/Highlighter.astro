@@ -1,24 +1,9 @@
 ---
-const { target, title = "Click me!", description = "", bare = false } = Astro.props;
+const { target, title = "Click me!", description = "" } = Astro.props;
 ---
 
 <click-highlight id="clickable" data-target={ target }
 data-title={ title } data-desc={ description }><slot /></click-highlight>
-
-
-{ bare &&
-    <style>
-        > * { display:block; }
-        click-highlight::before { content:'<click-highlight>' }
-        click-highlight::after { content:'</click-highlight>' }
-
-        *::before, *::after {
-        color:rgba(136, 18, 128, 0.5);
-        font-weight:100;
-        font-size:1.0em;
-        }
-    </style>
-}
 
 <script>
     import link_to_target from "./highlight.js";
@@ -28,7 +13,7 @@ data-title={ title } data-desc={ description }><slot /></click-highlight>
             super();
 
             link_to_target(this, "#" + this.dataset.target,
-            this.dataset.title, this.dataset.desc);
+            this.dataset.title!, this.dataset.desc!);
         }
     }
 

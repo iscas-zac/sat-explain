@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon';
   <div style="flex: 0 0 30%;" />
   <Mode />
   <nav class="header__nav">
-    <span class="header__nav-item"><a href="/overall">
+    <span class="header__nav-item"><a href=`${import.meta.env.BASE_URL}/overall`>
       <svg viewBox="0 0 24 24" width="32" height="32" style="filter: invert(1);">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
       </svg>

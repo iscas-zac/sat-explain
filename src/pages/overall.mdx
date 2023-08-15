@@ -9,25 +9,35 @@ import Teacher from "../components/Teacher.astro";
 import TodoModal from "../components/TodoModal.astro";
 import Guide from "../components/Guide.astro";
 import Highlighter from "../components/Highlighter.astro";
+import Bare from "../components/Bare.astro";
 
 In history of problem solving, logic is one of the keys to a 'universal theory'.
+You have always been interested in logic, but those symbols were too annoying.
 
-In this article, I will show you around the logic world, especially
-about the SAT problem and the DPLL, CDCL algorithms.
+One day, you stumbled across a big book, with a title "". You picked it up,
+and found some sentences on the preface. 
 
-... Or you will see it in your own way?
+"
+<Highlighter target="version" title="Version"
+description="I mean, this is a incomplete webpage, and I decided to add more after deadline.
+Is this allowed by SoME? Tell me if it is not.">
+<span id="version">0.99</span>
+</Highlighter>
+
+You decided to read it, but the book seemed so old, that you were afraid
+it would break into pieces.
 
 <TodoModal>
 make this sound more natural?
 </TodoModal>
 
-Well, pretend you were putting your finger on that weird-looking book,
+Well, you were putting your finger on that weird-looking book,
 thinking that it would bring you some knowledge on the logical decision.
 
-<img src={ `${import.meta.env.BASE_URL}preface.png` }
+{/* <img src={ `${import.meta.env.BASE_URL}preface.png` }
 alt="a mysterious person under a fancy cloak looking at a book, 
 simple lineart, parchment, comic style, sketch"
-style="width: 100%"/>
+style="width: 100%"/> */}
 
 Something fell from between the pages.
 
@@ -38,15 +48,17 @@ beautify the select thing, better add a video option
 
 <Guide
 info="When you knew what had happened, you said to yourself."
-directions={ [["A bunch of notes! I wish somebody just explain logic in a friendly fashion.", `${import.meta.env.BASE_URL}ch1`],
-["I don't have much time. Just check that out.", `${import.meta.env.BASE_URL}shortpath`]] }
+directions={ [['"A bunch of cards! Should I read all these?"', `${import.meta.env.BASE_URL}ch1`],
+['"I don\'t have much time. Just check that page out."', `${import.meta.env.BASE_URL}shortpath`]] }
 />
 
-# tips
 
+## tips
 1. Any feedback is welcome at https://github.com/iscas-zac/sat-explain/discussions.
-2. Some effects are not implemented yet.
-3. Use <Highlighter target="mode" bare="true" description="oops, you found me?">
-different browsing mode </Highlighter>
+2. Here used to be some AI illustrations. According to 
+[SoME's AI policy](https://some.3b1b.co/content-policy#ai), I replaced them with
+my hand-drawn. Well, tell me if I could post those.
+3. Use <Highlighter class="bare" target="mode" description="oops, you found me?">
+<span class="bare">different browsing modes</span> </Highlighter>
 on the upper right selection bar.
 4. Have fun!
