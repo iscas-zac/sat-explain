@@ -9,6 +9,65 @@ import Guide from "../components/Guide.astro";
 import TodoModal from "../components/TodoModal.astro";
 import Canvas from "../components/Canvas.astro";
 
-...
+## A Note
 
-Read along about [reasoning like humankind](./ch2).
+The appendices are intended as a window for some interesting topics,
+and unfortunately also a storage place for inmature thoughts. So please
+refer to professional works for further information.
+
+## Consistency Revisited
+
+As your 'classmates' have mentioned in the conversations, the consistency
+of a logical system means whether there are conflicts in it. If an
+arithmetic system (with boolean operations as well as $ +, -, \times, \div $)
+asserts '2 + 2 = 5' after some deduction, while keeping other concepts
+aligned to the elementary textbook, then it is inconsistent.
+We are also aware now that a system can not be easily judged as consistent.
+
+Concepts like 'consistency' are something that describes the whole system.
+It's like we praise a car as 'well-made' if every screw and gear fit well.
+Therefore, people are eager to measure such properties.
+
+## On Completeness, and Others
+
+There are some other ideas like that, one of which is **completeness**. A
+system is complete when it can describe everything in its vocabulary.
+For a logical system, it should be able to prove or falsify any statement.
+
+Consistency still lives in the syntactic world, that is, the system
+itself. But completeness can communicate with the semantic world as well.
+In fact, a common way of proving incompleteness is to find a statement
+that has clear semantic truth value but can not be deduced in the system.
+Completeness is thus defined as, "all that is `true` can be proved in the
+system".
+
+The concept **computability** and **decidability** are deeply interwined with computer science,
+which is usually linked with some kind of problems, just lik SAT. Some problem is
+computable if we will finally know the answer in finite time. (The undecidable may
+just end up with a loop.)
+
+Conversely, there is another property, 'soundness', saying "all that can
+be proved in the system is `true`".
+
+## The Theorem
+
+People say propositional logic is sound and complete, and consistent. But just is
+there something that is not?
+
+Well, the not-so-perfect systems are easily built. To be inconsistent, we can just
+introduce a rule that proves a statement and its negation together, for example A and not A. To be
+incomplete, we simply remove every syntactic rule in the system. To be unsound,
+we simply introduce a rule that proves something false.
+
+However, these properties are not independent. We know that everything is provable
+from a contradiction, which is exactly what inconsistency grants. Therefore, if
+some logic (which admits 'everything is provable from a contradiction') is inconsistent,
+it is then complete.
+
+Mathematicians used to think that some common logical systems were consistent and
+complete, until the famous Theorem of Incomplete stood out. It is basically derived
+from a 'liar paradox', where one sentence claims itself to be false. From then on,
+people understand that if the system is powerful enough, it can not be both consistent
+and complete.
+
+Read along about [reasoning like humankind](../ch2).

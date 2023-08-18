@@ -10,6 +10,7 @@ import Choice from "../components/Choice.astro";
 import Guide from "../components/Guide.astro";
 import TodoModal from "../components/TodoModal.astro";
 import Summary from "../components/Summary.astro";
+import Highlighter from "../components/Highlighter.astro";
 
 <Choice
   info="What is the difference between syntactic and semantic concepts in logic?"
@@ -30,12 +31,12 @@ means something to be proved.": 1,
 
 <Teacher>
 
-Time to start, **bold** truth-seekers! Today we are going to face a logical problem.
-Before that, have a look at this classic riddle:
+Time to start, **bold** truth-seekers! Today we are going to solve some logical problems.
+For example, have a look at this classic riddle:
 
 Three kids are accused of breaking a window. Their statements are either true or false. Only one is telling a lie.
 
-- 🐶 said, <span id="stmt1" onClick="
+- 🐶 said, <span id="stmt1" data="     contradicts 😼!" onClick="
 var stmt1 = document.getElementById('stmt1');
 var stmt2 = document.getElementById('stmt2');
 var stmt3 = document.getElementById('stmt3');
@@ -45,7 +46,7 @@ function click() {
   stmt3.classList.add('red-borders');
 };
 click()">"😼 is telling a lie."</span>
-- 😼 said, <span id="stmt2"  onClick="
+- 😼 said, <span id="stmt2" data="contradicts!" onClick="
 var stmt1 = document.getElementById('stmt1');
 var stmt2 = document.getElementById('stmt2');
 var stmt3 = document.getElementById('stmt3');
@@ -55,7 +56,7 @@ function click() {
   stmt3.classList.remove('red-borders');
 };
 click()">"🐰 broke the window."</span>
-- 🐰 yelled, <span id="stmt3" onClick="
+- 🐰 yelled, <span id="stmt3" data="     contradicts 😼!" onClick="
 var stmt1 = document.getElementById('stmt1');
 var stmt2 = document.getElementById('stmt2');
 var stmt3 = document.getElementById('stmt3');
@@ -66,11 +67,9 @@ function click() {
 };
 click()">"I didn't!"</span>
 
-<style>.red-borders \{ border: 1px solid red;\}</style>
+<style>.red-borders \{ border: 1px solid red; \}
+.red-borders[data]::after \{ content: attr(data); color: purple; font-size: small; \}</style>
 
-<TodoModal>
-make the lines structural
-</TodoModal>
 Who's going to tell me, which one is telling a lie?
 <i style="font-family: Arial, Helvetica, sans-serif;">(click
 each sentence see the contradictions if it is a lie.)</i>
@@ -94,7 +93,7 @@ make a table or something
 <Student name="B">
 
 Hey, move aside! I have found a secret. The statements of 🐶 and 😼
-always contradicts, and at most one of them is true!
+always contradict with each other, so at most one of them is true!
 
 The same is for 😼 and 🐰. As a result, there is a lier between 🐶
 and 😼, as well as between 😼 and 🐰. As we know there is at most
@@ -107,34 +106,74 @@ and 😼, as well as between 😼 and 🐰. As we know there is at most
 ... If 😼 is telling a lie, then 🐶 is right, and 🐰 didn't broke the window.
 
 I have just finish my enumeration, and I agree that's correct.
+
+<span class="plain">
+| 🐶 	| 😼 	| 🐰 	| result           	|
+| :---:	| :---:	| :---:	| :----------: 	|
+| ❌ 	| ✅ 	| ✅ 	| 🐰 contradicts 😼	|
+| ✅ 	| ❌ 	| ✅ 	| ✅                	|
+| ✅ 	| ✅ 	| ❌ 	| 🐶 contradicts 😼	|
+</span>
+<span class="formal">
+
+Of course, I've also noticed that not all possibilities are listed here!
+The words "only 1️⃣ is telling a lie" explicitly excluded some possibilities.
+
+
+| 🐶 	| 😼 	| 🐰 	| result           	|
+| :---:	| :---:	| :---:	| :----------: 	|
+| ❌ 	| ✅ 	| ✅ 	| 🐰 contradicts 😼	|
+| ✅ 	| ❌ 	| ✅ 	| ✅                	|
+| ✅ 	| ✅ 	| ❌ 	| 🐶 contradicts 😼	|
+| ❌ 	| ❌ 	| ✅ 	| contradicts 1️⃣, and (🐶 lies) contradicts (😼 lies)	|
+| ✅ 	| ❌ 	| ❌ 	| contradicts 1️⃣, and (🐰 lies) contradicts (😼 lies)	|
+| ❌ 	| ✅ 	| ❌ 	| contradicts 1️⃣	|
+| ❌ 	| ❌ 	| ❌ 	| contradicts 1️⃣🐰 contradicts 😼	|
+| ✅ 	| ✅ 	| ✅ 	| contradicts 1️⃣, 🐰 and 🐶 contradict 😼 |
+
+</span>
 </Student>
 
 <Student name="you">
 
+<Highlighter target="my_note" title="Temporarily unresponsive"
+description="Well, you caught me again! This thing is really editable,
+but it's just that. I have not yet figured out what to do with it,
+and it can not persist, or deliver something to a server and give you
+a feedback from some chatty AI.
+If you have an idea or dark magic for this, feedback is welcome!">
+<span class="my_note">
 \ \ Whoa, I found a empty note? I can even write something here!  %$^(^$^^(&$@#!))
+</span>
+</Highlighter>
 
 </Student>
 
 <Teacher>
 
 Good, you have found two different ways to solve the problem.
-However, we still need to look at it from a more formal perspective.
+However, we still need to look at them from a more formal perspective.
 
-Let's check your problem solving skills, which draw the same conclusion at last.
-However, they are intricately different.
+As you have discovered, we are now dealing with the *statement*s, or
+sentences / propositions / formulas, which are interchangeably used here.
+<span class="formal">
+> A statement can be defined as a declarative sentence, or part of a sentence,
+that is capable of having a truth-value, such as being true or false. (Quote
+from [online resource](https://iep.utm.edu/propositional-logic-sentential-logic/))
+</span>
 
-One checks all possible solutions, and filters out the unqualified;
-the other grows from solid assumptions, and everything it derives is qualified
-by nature. We call this *reasoning*.
+for you who easily spot the contradiction, and derive everything from the prerequisites,
+we call this process *reasoning*.
 <TodoModal>
 highlight with color, emoji and even styles
 </TodoModal>
 
-The reasoning process has some key elements, for example, axioms.
+The reasoning process has some key elements. For example, axioms are
+some kinds of statements we all agree.
 Every reasoning process must have a beginning.
 
 And syntax, deduction, or rules, whatever you like. Like a detective, we draw a conclusion
-from the 'axioms'.
+from the axioms.
 
 And of course there is always a conclusion to be proved.
 
@@ -156,6 +195,10 @@ However, just like a detective solving a case, there are occasions when reasonin
 fails. When faced with similar puzzles, we human usually identify the reasoning rules,
 and try to deduce with them. If no more information can be deduced, we turn to the
 last method, enumerating possible solutions and seek *truths*.
+
+For you who check all possible solutions, and filter out the unqualified,
+the work is enormous, yet effective. When we talk about *enumerate*,
+*possibility*, *combination*, we are using this method.
 
 We consider this a semantic process, and the truths are said to be *satisfying*.
 </Teacher>
