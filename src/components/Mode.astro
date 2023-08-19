@@ -1,6 +1,6 @@
 <select id="mode" autocomplete="off" required>
   <option value="plain" selected>plain</option>
-  <option value="formal">formula</option>
+  <option value="formal">formal</option>
   <option value="code">code</option>
   <option value="voice">voice</option>
   <option value="history">history</option>
@@ -31,7 +31,6 @@
 
 <script is:inline>
   const selectElement = document.getElementById("mode");
-  console.log(selectElement);
   const visibility_update = function () {
     for (const label of [
       "plain",
