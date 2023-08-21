@@ -1,16 +1,41 @@
 ---
 const {
   title,
+  language,
+  default_content = "",
 } = Astro.props;
 
 ---
 
 <div
   id="code-editor"
-  style="width: 800px; height: 600px; border: 1px solid grey"
+  style="width: 80%; height: 300px; border: 1px solid grey"
+  data-language={ language }
+  data-title={ title }
+  data-default={ default_content }
 >
 </div>
 
+<div id="blank"></div>
+
 <script>
-  import './Editor.client.js';
+  import * as monaco from 'monaco-editor'
+
+  var editor_element = document.getElementById('code-editor')!;
+  var editor = monaco.editor.create(editor_element, {
+      value: editor_element.dataset.default,
+      language: editor_element.dataset.language
+  });
+
+  var btn = document.createElement("button");
+    btn.id = "show-content";
+    btn.innerHTML = "点我获取编辑器内容";
+    var header = document.getElementById("blank");
+    header!.appendChild(btn);
+
+    // 点击 button 弹出编辑器内容
+    document.getElementById("show-content")!.addEventListener("click", function () {
+        // 获取编辑器内容
+        alert(editor.getValue());
+    });
 </script>

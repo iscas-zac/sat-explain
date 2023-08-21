@@ -4,7 +4,7 @@ import "@fontsource/indie-flower";
 var { color, contenteditable, font } = Astro.props;
 if (contenteditable == null) contenteditable = false;
 if (font == null) font = "IM Fell DW Pica";
-const maxDegree = 10;
+const maxDegree = 5;
 const randomRotation = `${Math.floor(
   Math.random() * maxDegree - maxDegree / 2
 )}deg`;

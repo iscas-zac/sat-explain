@@ -20,9 +20,9 @@ function hashCode(str: string): number {
   // return h & 0xFFFFFFFF
 }
 
-const h1 = Math.abs(hashCode(name + "999999999") % 256);
-const h2 = Math.abs(hashCode(name + "22") % 256);
-const h3 = Math.abs(hashCode(name + "4444") % 256);
+const h1 = 127 + Math.abs(hashCode(name + "55555") % 128);
+const h2 = 127 + Math.abs(hashCode(name + "22") % 128);
+const h3 = 127 + Math.abs(hashCode(name + "999999999") % 128);
 const backgroundColor = "rgb(" + h1 + ", " + h2 + ", " + h3 + ")";
 ---
 

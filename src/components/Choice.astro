@@ -14,10 +14,10 @@ const { info, options, directions, submit = true } = Astro.props as Choices;
   <b style="font-size: larger; line-height: 50px;">{info}</b>
 
   {
-    Object.keys(options).map((prompt) => (
+    Object.keys(options).map((prompt, index) => (
       <div>
-        <input type="radio" name="answer" value={options[prompt]} onclick="submit()" />
-        <label>{prompt}</label>
+        <input id={ `input-` + index } type="radio" name="answer" value={options[prompt]} onclick="submit()" />
+        <label for={ `input-` + index }>{prompt}</label>
       </div>
     ))
   }
