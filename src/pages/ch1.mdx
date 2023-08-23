@@ -72,7 +72,7 @@ click()">"I didn't!"</span>
 
 Who's going to tell me, which one is telling a lie?
 <i style="font-family: Arial, Helvetica, sans-serif;">(click
-each sentence see the contradictions if it is a lie.)</i>
+each sentence to see the contradictions if it is a lie.)</i>
 
 </Teacher>
 
@@ -134,19 +134,18 @@ The words "only 1️⃣ is telling a lie" explicitly excluded some possibilities
 </span>
 </Student>
 
-
+<Student name="you">
 <Highlighter target="my_note" title="Temporarily unresponsive"
 description="Well, you caught me again! This thing is really editable,
 but it's just that. I have not yet figured out what to do with it,
 and it can not persist, or deliver something to a server and give you
 a feedback from some chatty AI, blah blah.
 If you have an idea or dark magic for this, feedback is welcome!">
-<Student name="you">
 <span class="my_note">
 \ \ Whoa, I found a empty note? I can even write something here!  %$^(^$^^(&$@#!))
 </span>
-</Student>
 </Highlighter>
+</Student>
 
 <Teacher>
 
@@ -162,19 +161,19 @@ that is capable of having a truth-value, such as being true or false. (Quote
 from [online resource](https://iep.utm.edu/propositional-logic-sentential-logic/))
 </span>
 
-for you who easily spot the contradiction, and derive everything from the prerequisites,
+For you who easily spot the contradiction, and derive everything from the prerequisites,
 we call this process *(formal) reasoning*.
 
 <TodoModal>
 highlight with color, emoji and even styles
 </TodoModal>
 
-The reasoning process is like inspecting a crime case, which involves classical steps.
+The reasoning process is like inspecting a crime case, which involves classical <u>steps</u>.
 We have premises, some statements given as a starting point; we have syntax rules,
 with which a new statement is acquired from existing ones; and we have a
 target, or conclusion, the fact we desire.
 
-In this syntax, we say something is **derivable**, or provable, given a set of conditions,
+In this syntax, we say something is *derivable*, or provable, given a set of conditions,
 that is, by reasoning, we can reach the conclusion, just like math proof questions
 in your middle school tests.
 
@@ -203,11 +202,11 @@ true and false.</span>
 However, just like a detective solving a case, there are occasions when reasoning
 fails. When faced with similar puzzles, we humans usually identify the reasoning rules,
 and try to deduce with them. If no more information can be deduced, we turn to the
-other method, enumerating possible solutions and seek *truths*.
+other method, enumerating possible solutions and seek *truth*s.
 
 For you who check all possible solutions, and filter out the unqualified,
-the work is tedious, yet effective. When we talk about *enumerate*,
-*possibility*, *combination*, we are using this method.
+the work is tedious, yet effective. When we talk about **enumerate**,
+**possibility**, **combination**, we are using this method.
 
 We consider this a semantic process, and the truths are said to be *satisfying*,
 or simply *true*, in our daily sense. Note the key difference between a
@@ -239,7 +238,7 @@ propositions if not otherwise mentioned.
 
 Before we move on, let's grab some syntactic and semantic concepts. We have
 see the syntactic concept derivability before.
-Now, who can give me a semantic version of derivability?
+Now, who can give me a <u>semantic version of derivability</u>?
 
 </Teacher>
 
@@ -261,8 +260,7 @@ Yep, despite that your sentence is an arithmetic statement and beyond our propos
 We'd better only consider the formulas whose truth value can be enumerated!
 It is sometimes stated as "anything can be derived from a contradiction".
 
-By the way, *semantical derivability* is referred to as *validity* here,
-to avoid confusion with the "validity" of the statement.
+By the way, semantical derivability is referred to as *validity* here.
 
 </Teacher>
 
@@ -270,7 +268,7 @@ to avoid confusion with the "validity" of the statement.
 
 I get it. And we have seen the semantical consistency!
 
-As stated before, the semantical consistency of a group of statements are
+As stated before, the semantical consistency, a.k.a satisfiability, of a group of statements are
 actually about finding a set of values in the world to make every statement
 satisfy.
 
@@ -278,13 +276,14 @@ satisfy.
 
 <Teacher>
 
-Yes. The semantical consistency is also called satisfiability,
 <TodoModal>
 explain what SAT means
 </TodoModal>
+Yes. The semantical consistency is also called satisfiability,
 and we are going to talk about how to know if a statement is satisfiable.
 In propositional logic, it is called *Boolean Satisfiability Problem*, or
-SAT for short. For example, we decided which one is lying in the puzzle.
+SAT for short. When we decided which one was lying in the puzzle, we solved
+a SAT problem!
 
 </Teacher>
 
@@ -296,7 +295,7 @@ it's also about finding a way to reason from some statement to some others!
 Wait, that doesn't make sense. Anything can be derived from a contradiction,
 and I remember that consistency means no contradiction can be deduced.
 
-Can I make sure every statement derived is not a contradiction? That should suffice.
+Can I make sure <u>every</u> statement derived is not a contradiction? That should suffice.
 
 </Student>
 
@@ -306,8 +305,8 @@ Sorry, there are usually infinite derivations from a propositional logic thing.
 That is, a set of statements are inconsistent if contradiction can be deduced.
 However, nothing tells you if they are consistent!
 
-It's indeed a weird thing. You can easily tell something is not *consistent*,
-but can never make sure it is *consistent*.
+It's indeed a weird thing. You can easily tell something is *inconsistent*,
+but can never make sure it is consistent.
 
 But try to recall the last time when you factorize a large number!
 We easily see that 1561596 has a factor 2, but it may cost a lot to see if
@@ -324,7 +323,8 @@ Exercise:
 
 1. tell me if pythagoras theorem is derivable or valid, in the case when
 someone deduces it from some geometrical magic.
-
+2. tell your friends about the difference between a satisfiable thing and
+a consistent thing, as concise as possible.
 
 </Teacher>
 
