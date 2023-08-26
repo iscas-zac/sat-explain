@@ -11,36 +11,53 @@ import Guide from "../components/Guide.astro";
 import Highlighter from "../components/Highlighter.astro";
 import Bare from "../components/Bare.astro";
 
-In history of problem solving, logic is one of the keys to a 'universal theory'.
+Imaging the joy when lifting your head from a pile of calculating paper,
+and the thrill beneath these math equations when some number
+magically appears out of the dark side.
 
-You have always been interested in logic, but those symbols were too annoying.
+And imaging you have always been interested in logic, wondering if there is some logical counterpart
+as opposed to math equations. But its symbols were too annoying.
 
 One day, you stumbled across a big book, with a title "Logic: the Gathering".
 You picked it up, and found some sentences on the preface. 
 
-"
-Dear reader, I have always struggled to learn logic and the solving methods.
-Why is the problem special? What are the difference between the solutions?
-It's only when thoughts collide with each other that the underlying
-structure becomes clear.
+<style>blockquote \{ max-width: 80%; \}</style>
 
-They will make your learning <Highlighter target="version" title="Version"
+> Dear reader, I have always struggled to learn logic and the problem solving techniques.
+>
+>\
+> How to solve a problem? How to do it quickly? What are the difference between techniques?
+These occured to me in a maze, which hopefully I can share with you.
+>
+>\
+> It's only when thoughts collide with each other that the underlying
+structure will become clear.
+Let us learn <Highlighter target="version" title="Version"
 description="I mean, this is a incomplete webpage, and I decided to add more after deadline.
-This version is updated on 25th, code mode partially supported.
+This version is updated on 26th, code playground partially supported.
 ">
-<span id="version" style="text-decoration: underline;">1.0.4</span>
-</Highlighter> times faster.
-"
+<span id="version" style="text-decoration: underline; cursor: pointer;">1.0.4</span>
+</Highlighter> times faster!
 
 You decided to read it, but the book seemed so old, that you were afraid
 it would break into pieces.
+
+Some front pages seemed in a good condition, but the words in pages near
+the back were just a mess. So maybe only the first part was worth reading?
+<div style="font-size: 0.8em;
+  color: #666;
+  line-height: 1.2;">
+(sorry, the article is still in progress. Part 1 is almost done, but take
+some risk if you would read more. Aug. 26th.)
+</div>
 
 <TodoModal>
 make this sound more natural?
 </TodoModal>
 
 Well, you were putting your finger on that weird-looking book,
-thinking that it would bring you some knowledge on the logical decision.
+thinking that it would bring you some knowledge on logical problem
+solving.
 
 {/* <img src={ `${import.meta.env.BASE_URL}preface.png` }
 alt="a mysterious person under a fancy cloak looking at a book, 
@@ -56,8 +73,8 @@ beautify the select thing, better add a video option
 
 <Guide
 info="When you knew what had happened, you said to yourself."
-directions={ [['"A bunch of cards! The journey begins!!!"', `${import.meta.env.BASE_URL}ch1`],
-['"I don\'t have much time. Just check that page out."', `${import.meta.env.BASE_URL}shortpath`]] }
+directions={ [['"A bunch of cards! Let the journey begin!!!"', `${import.meta.env.BASE_URL}ch1`],
+['"I don\'t have much time. Just check that sheet out."', `${import.meta.env.BASE_URL}shortpath`]] }
 />
 
 

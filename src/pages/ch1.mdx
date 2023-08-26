@@ -150,17 +150,59 @@ If you have an idea or dark magic for this, feedback is welcome!">
 
 <Teacher>
 
-Good, you have found two different ways to solve the problem.
-However, we still need to look at them from a more formal perspective.
-
-(Hey if you change to 'code' mode here, you will find a prolog playground!
-that is under constructions now)
+Good, you have found two different ways to solve the problem. They are
+so similar that we can abstract them with a general process
+<sup style="color: #567; cursor: pointer; font-family: Georgia, 'Times New Roman', Times, serif;"
+onclick="const s = document.getElementById('mode'); s.value = 'code';
+s.dispatchEvent(new CustomEvent('change'));">[code]</sup>.
 
 <TodoModal>
 make a better run button, add grammar highlighting  
 </TodoModal>
 
 <div class="code">
+
+Here we are tackling the puzzle with a programming language,
+<a href="http://tau-prolog.org/">Prolog</a>,
+which abstracts some interesting logical operations.
+
+If you're familiar with programming, feel free to skip the
+paragraphs to direct play with the code.
+
+Prolog uses `First_letter_capitalized_word` as something unknown, and
+`first_letter_lowercase_word` as an entity. For example, we tell it that
+```
+person(alice).
+person(bob).
+person(cesi).
+```
+, or that `alice`, `bob` and `cesi` are `person`s; and ask it that
+```
+person(X).
+```
+, or that if `X` is a `person`, what does `X` represent.
+
+The *predicate*s make anything inside have a **property**. In Prolog,
+we have seen that `person(alice)` makes `alice` have a property `person`.
+Predicates can establish a property, or **relation**, between more than one item, but
+we are not going to use such a feature.
+
+We are also going to express causal relation with `:-` (if) and
+yes-or-no information with `\+` (not). For example, we tell Prolog that
+```
+truth_teller(X) :- person(X), \+ lie(X).
+liar(X) :- person(X), lie(X).
+```
+, the definition of "truth" and "lie", and
+```
+break_window(cesi) :- \+ lie(bob).
+lie(bob) :- \+ lie(alice).
+lie(cesi) :- break_window(cesi).
+```
+, what the three kids said. Note that I make some interpretations here.
+
+(TODO: the program seems not very accurate. When I plug in more conditions,
+it still gives an answer, which does not make things satisfy.)
 
 <PrologSnippet default_content="% define persons
 person(alice).
@@ -173,20 +215,21 @@ liar(X) :- person(X), lie(X).
 % the constraints
 break_window(cesi) :- \+ lie(bob).
 lie(bob) :- \+ lie(alice).
-\break_window(cesi) :- \+ lie(cesi).
+lie(cesi) :- break_window(cesi).
 
-exactly_one_statement_holds :- 
-  lie(A),
-  lie(B),
-  lie(C),
+exactly_one_lie :- 
+  liar(A),
+  truth_teller(B),
+  truth_teller(C),
   A \= B,
   A \= C,
   B \= C.
 
-exactly_one_statement_holds.
+:- exactly_one_lie.
 " default_query="liar(X)."/>
 
 </div>
+However, we still need to look at them from a more formal perspective.
 
 As you have discovered, we are now dealing with the *statement*s, or
 sentences / propositions / formulas, which are interchangeably used here.
@@ -267,7 +310,7 @@ So a semantic concept is always linked to the world or the basic facts.
 <Teacher>
 
 The puzzle has three statements, each of which is either true or false.
-Everything is a yes-or-no question, that is exactly how *propositional logic* sees the world.
+Everything is a yes-or-no question, that is exactly how *propositional logic* views the world.
 
 We'll talk more about propositional logic later. In fact, our discussion is all about
 propositions if not otherwise mentioned.
@@ -294,7 +337,9 @@ condition true, and they don't need to make the conclusion true then.
 
 Yep, despite that your sentence is an arithmetic statement and beyond our propositional logic.
 We'd better only consider the formulas whose truth value can be enumerated!
-It is sometimes stated as "anything can be derived from a contradiction".
+
+Your idea is mostly interesting in the syntactic situation, where
+it is sometimes stated as <u>anything can be derived from a contradiction</u>.
 
 By the way, semantical derivability is referred to as *validity* here.
 
@@ -302,7 +347,7 @@ By the way, semantical derivability is referred to as *validity* here.
 
 <Student name="A">
 
-I get it. And we have seen the semantical consistency!
+I get it. After that, here comes the <u>semantical consistency</u>!
 
 As stated before, the semantical consistency, a.k.a satisfiability, of a group of statements are
 actually about finding a set of values in the world to make every statement
@@ -315,8 +360,8 @@ satisfy.
 <TodoModal>
 explain what SAT means
 </TodoModal>
-Yes. The semantical consistency is also called satisfiability,
-and we are going to talk about how to know if a statement is satisfiable.
+Yes. The semantical consistency, actually satisfiability,
+usually comes in the form of whether a statement is satisfiable.
 In propositional logic, it is called *Boolean Satisfiability Problem*, or
 SAT for short. When we decided which one was lying in the puzzle, we solved
 a SAT problem!
@@ -325,7 +370,7 @@ a SAT problem!
 
 <Student name="B">
 
-And finally, syntactic consistency! Like what satisfiability is to derivability,
+And finally, <u>syntactic consistency</u>! Like what satisfiability is to derivability,
 it's also about finding a way to reason from some statement to some others!
 
 Wait, that doesn't make sense. Anything can be derived from a contradiction,
@@ -345,8 +390,8 @@ It's indeed a weird thing. You can easily tell something is *inconsistent*,
 but can never make sure it is consistent.
 
 But try to recall the last time when you factorize a large number!
-We easily see that 1561596 has a factor 2, but it may cost a lot to see if
-1594897 is itself a prime number.
+We easily see that `1561596` has a factor `2`, but it may cost a lot to see if
+`1594897` is itself a prime number.
 
 That asymmetry is partly studied in a field called *theory of computation*,
 and I believe we are still very superficial in that aspect.
@@ -360,7 +405,8 @@ Exercise:
 1. tell me if pythagoras theorem is derivable or valid, in the case when
 someone deduces it from some geometrical magic.
 2. tell your friends about the difference between something true and
-something provable, as concise as possible. (Bonus: it is a key difference
+something provable, as concise as possible. \
+(Bonus: it is a key difference
 between our minds and a stricter system to think they are equal or not, see
 [Löb's Theorem](https://www.lesswrong.com/posts/ALCnqX6Xx8bpFMZq3/the-cartoon-guide-to-loeb-s-theorem),
 where by not admitting they are equal, the system find a way to turn down
