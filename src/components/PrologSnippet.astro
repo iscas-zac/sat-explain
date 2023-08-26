@@ -1,19 +1,36 @@
 ---
 import Snippet from "./Snippet.astro";
+const { default_content, default_query } = Astro.props;
 ---
 
-<Snippet/>
+<Snippet title="Solve via Prolog!" language="prolog" default_content={ default_content }/>
+<div style="height: 10px;" />
+<div style="color: #AAA; background-color: black; font-family: 'Courier New', Courier, monospace;
+padding: 10px; border: 3px solid #ddd;">
+  <text>QUERY &gt;</text>
+  <div style="" contenteditable="true" id="query" data-placeholder="type here">
+    { default_query }
+  </div>
+</div>
+<div style="height: 10px;" />
+<div style="background-color: #444; color: #EEE; font-family: monospace;
+padding: 10px; border: 3px ridge #ddd;">
+  <text>ANSWER &gt;</text>
+  <text id="result">
+  </text>
+</div>
+
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/tau-prolog@0.3.4/modules/core.min.js" />
 
 <script>
-    import pl from "tau-prolog";
-    var session = pl.create();
-    session.consult(`
-    likes(sam, salad).
-    likes(dean, pie).
-    likes(sam, apples).
-    likes(dean, whiskey).
-`, {
-    success: function() { /* Program loaded correctly */ },
-    error: function(err) { /* Error parsing program */ }
-});
+  import "./prolog_snippet.js"
 </script>
+
+<style>
+  div[contenteditable=true]:empty:not(:focus):before{
+    content:attr(data-placeholder);
+    color:grey;
+    font-style:italic;
+  }
+</style>

@@ -11,6 +11,7 @@ import Guide from "../components/Guide.astro";
 import TodoModal from "../components/TodoModal.astro";
 import Summary from "../components/Summary.astro";
 import Highlighter from "../components/Highlighter.astro";
+import PrologSnippet from "../components/PrologSnippet.astro";
 
 <Choice
   info="What is the difference between syntactic and semantic concepts in logic?"
@@ -151,6 +152,41 @@ If you have an idea or dark magic for this, feedback is welcome!">
 
 Good, you have found two different ways to solve the problem.
 However, we still need to look at them from a more formal perspective.
+
+(Hey if you change to 'code' mode here, you will find a prolog playground!
+that is under constructions now)
+
+<TodoModal>
+make a better run button, add grammar highlighting  
+</TodoModal>
+
+<div class="code">
+
+<PrologSnippet default_content="% define persons
+person(alice).
+person(bob).
+person(cesi).
+
+truth_teller(X) :- person(X), \+ lie(X).
+liar(X) :- person(X), lie(X).
+
+% the constraints
+break_window(cesi) :- \+ lie(bob).
+lie(bob) :- \+ lie(alice).
+\break_window(cesi) :- \+ lie(cesi).
+
+exactly_one_statement_holds :- 
+  lie(A),
+  lie(B),
+  lie(C),
+  A \= B,
+  A \= C,
+  B \= C.
+
+exactly_one_statement_holds.
+" default_query="liar(X)."/>
+
+</div>
 
 As you have discovered, we are now dealing with the *statement*s, or
 sentences / propositions / formulas, which are interchangeably used here.
@@ -323,8 +359,12 @@ Exercise:
 
 1. tell me if pythagoras theorem is derivable or valid, in the case when
 someone deduces it from some geometrical magic.
-2. tell your friends about the difference between a satisfiable thing and
-a consistent thing, as concise as possible.
+2. tell your friends about the difference between something true and
+something provable, as concise as possible. (Bonus: it is a key difference
+between our minds and a stricter system to think they are equal or not, see
+[Löb's Theorem](https://www.lesswrong.com/posts/ALCnqX6Xx8bpFMZq3/the-cartoon-guide-to-loeb-s-theorem),
+where by not admitting they are equal, the system find a way to turn down
+[Curry's paradox](https://en.wikipedia.org/wiki/Curry%27s_paradox))
 
 </Teacher>
 

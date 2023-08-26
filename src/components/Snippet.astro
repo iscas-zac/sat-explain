@@ -7,35 +7,33 @@ const {
 
 ---
 
+<div class="textarea-header">
+  <h2>{ title }</h2>
+</div>
+
+<style>
+  .textarea-header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border: 1px solid #333;
+  }
+
+  .textarea-header h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+</style>
+
 <div
   id="code-editor"
-  style="width: 80%; height: 300px; border: 1px solid grey"
+  style="width: 100%; height: 300px; border: 1px solid grey"
   data-language={ language }
   data-title={ title }
   data-default={ default_content }
 >
 </div>
 
-<div id="blank"></div>
-
-<script>
-  import * as monaco from 'monaco-editor'
-
-  var editor_element = document.getElementById('code-editor')!;
-  var editor = monaco.editor.create(editor_element, {
-      value: editor_element.dataset.default,
-      language: editor_element.dataset.language
-  });
-
-  var btn = document.createElement("button");
-    btn.id = "show-content";
-    btn.innerHTML = "点我获取编辑器内容";
-    var header = document.getElementById("blank");
-    header!.appendChild(btn);
-
-    // 点击 button 弹出编辑器内容
-    document.getElementById("show-content")!.addEventListener("click", function () {
-        // 获取编辑器内容
-        alert(editor.getValue());
-    });
-</script>
+<div id="button-place"></div>
