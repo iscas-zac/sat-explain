@@ -154,7 +154,9 @@ Good, you have found two different ways to solve the problem. They are
 so similar that we can abstract them with a general process
 <sup style="color: #567; cursor: pointer; font-family: Georgia, 'Times New Roman', Times, serif;"
 onclick="const s = document.getElementById('mode'); s.value = 'code';
-s.dispatchEvent(new CustomEvent('change'));">[code]</sup>.
+s.dispatchEvent(new CustomEvent('change'));">[code]</sup>. Such solutions
+can also be applied to [Einstein's puzzle](https://en.wikipedia.org/wiki/Zebra_Puzzle),
+and a lot of scheduling problems if somewhat extended.
 
 <TodoModal>
 make a better run button, add grammar highlighting  
@@ -358,13 +360,19 @@ satisfy.
 <Teacher>
 
 <TodoModal>
-explain what SAT means
+explain more about what SAT means and its outset
 </TodoModal>
 Yes. The semantical consistency, actually satisfiability,
 usually comes in the form of whether a statement is satisfiable.
 In propositional logic, it is called *Boolean Satisfiability Problem*, or
 SAT for short. When we decided which one was lying in the puzzle, we solved
 a SAT problem!
+
+A good solution to SAT, as well as its extended versions like SMT and MaxSAT,
+will enhance greatly the industry of
+[hardware manufacturing](https://en.wikipedia.org/wiki/Electronic_design_automation#Analysis_and_verification)
+and [software package dependency solving](https://en.wikipedia.org/wiki/Dependency_hell).
+However, that is out of the scope of our class.
 
 </Teacher>
 
